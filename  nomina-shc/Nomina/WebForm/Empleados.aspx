@@ -514,7 +514,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label>Administradora de Salud</label>
                                             <select class="form-control">
@@ -543,7 +543,25 @@
                                             <option>Femenino</option>
                                         </select> 
                                     </div>
+                                    <br />
+                                    
                                     </form>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group"/>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <button type="button" class="btn btn-primary">Guardar</button>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <button type="button" class="btn btn-danger">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
