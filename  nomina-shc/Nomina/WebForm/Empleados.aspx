@@ -377,12 +377,12 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <%--<form role="form" runat="server">--%>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <label>Cédula</label>
-                                                    <input id="Cedula" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+                                                    <input id="txtCedula" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                                                 </div>
                                             </div>
                                         </div>
@@ -402,7 +402,7 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <label>Sexo</label>
-                                                    <select class="form-control">
+                                                    <select class="form-control" id="txtSexo">
                                                         <option>Masculino</option>
                                                         <option>Femenino</option>
                                                     </select>
@@ -413,7 +413,7 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <label>Estado Civil</label>
-                                                    <select class="form-control">
+                                                    <select class="form-control" id="txtEstadoCivil">
                                                         <option selected="selected">Soltero(a)</option>
                                                         <option>Casado(a)</option>
                                                         <option>Divorciado(a)</option>
@@ -426,8 +426,8 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <label>Fecha de nacimiento</label>
-                                                    <div class='input-group date fecha' id='datetimepicker1'>
-                                                        <input type='text' class="form-control" />
+                                                    <div class='input-group date fecha'>
+                                                        <input type='text' class="form-control" id="txtFechaNac"/>
                                                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
                                                     </div>
@@ -436,7 +436,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar Nacimiento</label>
-                                            <input id="txtLugNac" class="form-control"/>
+                                            <input id="txtLugNac" class="form-control" />
                                         </div>
                                          <div class="form-group">
                                             <label>Dirección</label>
@@ -463,7 +463,7 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <label>Grupo Sanguíneo</label>
-                                                    <select class="form-control">
+                                                    <select class="form-control" id="txtGrupoSanguineo">
                                                         <option selected="selected">O+</option>
                                                         <option>O-</option>
                                                         <option>A-</option>
@@ -476,7 +476,7 @@
                                                     </div>
                                                 </div>
                                         </div>
-                                    </form>
+                                    <%--</form>--%>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
@@ -487,11 +487,11 @@
                                     </div>
                                     <div class="form-group">
                                             <label>Profesión</label>
-                                             <input id="Text1" class="form-control" />
+                                             <input id="txtProfesion" class="form-control" />
                                         </div>
                                     <div class="form-group">
                                         <label>Cargo</label>
-                                            <select class="form-control">
+                                            <select class="form-control" id="txtCargo">
                                             <option>Masculino</option>
                                             <option>Femenino</option>
                                         </select> 
@@ -545,7 +545,6 @@
                                     </div>
                                     <br />
                                     
-                                    </form>
                                 </div>
                                     <div class="row">
                                         <div class="col-lg-4">
@@ -554,10 +553,10 @@
                                             <div class="form-group"/>
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <button type="button" class="btn btn-primary">Guardar</button>
+                                                    <button type="button" id= "BtnGuardar" class="btn btn-primary">Guardar</button>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <button type="button" class="btn btn-danger">Cancelar</button>
+                                                    <button type="button" id= "BtnCancelar" class="btn btn-danger">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -569,12 +568,7 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
+                
     </form>
 </body>
 </html>
