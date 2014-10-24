@@ -165,6 +165,7 @@
     <Content Include="WebForm\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Principal.aspx" />
+    <Content Include="WebForm\WebForm1.aspx" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="sb-admin-2\blank.html" />
     <Content Include="sb-admin-2\buttons.html" />
@@ -269,6 +270,13 @@
     </Compile>
     <Compile Include="WebForm\MasterFailed\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

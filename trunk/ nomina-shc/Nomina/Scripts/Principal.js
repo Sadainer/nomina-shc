@@ -18,4 +18,23 @@
         language: "es",
         pickTime: false
     });
+    $("#BtnGuardar").click(function () {
+        Emp = {};
+        Emp.idEmpleado = $("#txtCedula").val();
+        Emp.Nombre = $("#txtNombre").val();
+        Emp.ApellidoP = $("#txtApellidoP").val();
+        Emp.ApellidoS = $("#txtApellidoS").val();
+        Emp.Sexo = $("#txtSexo").val();
+        Emp.EstadoCivil = $("#txtEstadoCivil").val();
+        Emp.FechaNacimiento = $("#txtFechaNac").val();
+        Emp.LugarNacimiento = $("#txtLugarNac").val();
+        Emp.Direccion = $("#txtDireccion").val();
+        Emp.Telefono = $("#txtTelefono").val();
+        Emp.Celular = $("#txtCelular").val();
+        Emp.GrupoSanguineo = $("#txtGrupoSanguineo").val();
+        Emp.Profesion = $("#txtProfesion").val();
+        Emp.Cargos_idCargos = $("#txtCargo").val();
+        //alert(JSON.stringify(parametrosJSON));
+        alert(JSON.stringify(Emp));
+    });
 });
