@@ -11,13 +11,24 @@ namespace DAL
     public class NominaDAL
     {
         nominashcEntities db = new nominashcEntities();
-        
-        public List<EmpleadosDTO> GetMiembros()
+
+        public List<empleados> GetEmpleados()
         {
-            Mapper.CreateMap<empleados, EmpleadosDTO>();
-            List<EmpleadosDTO> lst = new List<EmpleadosDTO>();
-            Mapper.Map(db.empleados.ToList(), lst);
-            return lst;
+            return db.empleados.ToList();
+        }
+        public Boolean NuevoEmpleado(empleados Emp)
+        {
+            Boolean Resp = true;
+            db.empleados.Add(Emp);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (InvalidCastException e)
+            {
+                Resp = false;
+            }
+            return Resp;
         }
     }
 }
