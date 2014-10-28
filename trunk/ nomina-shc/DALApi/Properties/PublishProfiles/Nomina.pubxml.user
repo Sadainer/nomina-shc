@@ -13,13 +13,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/24/2014 15:07:27</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>10/28/2014 08:51:44</publishTime>
+      <publishTime>10/28/2014 16:51:21</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>10/28/2014 08:51:43</publishTime>
+      <publishTime>10/28/2014 16:51:20</publishTime>
     </File>
     <File Include="bin/DALApi.dll">
-      <publishTime>10/28/2014 08:51:44</publishTime>
+      <publishTime>10/28/2014 16:51:22</publishTime>
     </File>
     <File Include="bin/DTO.dll">
       <publishTime>10/28/2014 08:51:43</publishTime>
@@ -55,7 +55,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/24/2014 15:05:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/28/2014 08:51:46</publishTime>
+      <publishTime>10/28/2014 16:51:23</publishTime>
     </File>
   </ItemGroup>
 </Project>
