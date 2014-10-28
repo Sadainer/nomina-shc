@@ -9,16 +9,14 @@ using DTO;
 
 namespace DALApi.Controllers
 {
-    [RoutePrefix("api/establecimiento")]
     public class EmpleadoController : ApiController
     {
         NominaBLL NomBLL = new NominaBLL();
-
         // GET api/empleado
-        [Route("")]
         public List<EmpleadosDTO> Get()
         {
             return NomBLL.GetEmpleados();
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/empleado/5
