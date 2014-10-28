@@ -166,6 +166,7 @@
     <Content Include="WebForm\MasterFailed\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Principal.aspx" />
     <Content Include="WebForm\WebForm1.aspx" />
+    <None Include="Properties\PublishProfiles\Nomina.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="sb-admin-2\blank.html" />
     <Content Include="sb-admin-2\buttons.html" />

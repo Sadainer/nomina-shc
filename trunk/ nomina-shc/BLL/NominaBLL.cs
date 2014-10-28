@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using DAL;
+using DAL.Modelo;
 using DTO;
 
 namespace BLL
@@ -18,7 +19,7 @@ namespace BLL
             Mapper.CreateMap<EmpleadosDTO, empleados>();
             Mapper.Map(Emp, em);
             Dal.NuevoEmpleado(em);
-            
+
         }
         public List<EmpleadosDTO> GetEmpleados()
         {
