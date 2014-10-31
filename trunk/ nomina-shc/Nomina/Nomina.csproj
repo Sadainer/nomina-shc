@@ -125,6 +125,7 @@
     <Content Include="sb-admin-2\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="sb-admin-2\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="sb-admin-2\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="sb-admin-2\HtmlPage1.html" />
     <Content Include="sb-admin-2\less\mixins.less" />
     <Content Include="sb-admin-2\less\sb-admin-2.less" />
     <Content Include="sb-admin-2\less\variables.less" />

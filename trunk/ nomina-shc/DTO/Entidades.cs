@@ -14,7 +14,7 @@ namespace DTO
             public string ApellidoS { get; set; }
             public string Sexo { get; set; }
             public string EstadoCivil { get; set; }
-            public System.DateTime FechaNacimiento { get; set; }
+            public string FechaNacimiento { get; set; }
             public string LugarNacimiento { get; set; }
             public string Direccion { get; set; }
             public string Telefono { get; set; }
@@ -22,11 +22,5 @@ namespace DTO
             public string GrupoSanguineo { get; set; }
             public string Profesion { get; set; }
             public int Cargos_idCargos { get; set; }
-        }
-        public class CargosDTO
-        {
-            public int idCargos { get; set; }
-            public string Nombre { get; set; }
-
         }
 }

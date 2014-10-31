@@ -4,18 +4,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
+using System.Web.Http.Cors;
 using BLL;
 using DTO;
 
 namespace DALApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/empleado")]
     public class EmpleadoController : ApiController
     {
         NominaBLL NomBLL = new NominaBLL();
         // GET api/empleado
+        [Route("")]
         public List<EmpleadosDTO> Get()
         {
             return NomBLL.GetEmpleados();
+            
             //return new string[] { "value1", "value2" };
         }
 
@@ -26,13 +32,18 @@ namespace DALApi.Controllers
         }
 
         // POST api/empleado
-        public void Post([FromBody]string value)
+        [ResponseType(typeof(EmpleadosDTO))]
+        [Route("")]
+        [HttpPost]
+        public void Post(EmpleadosDTO empleado)
         {
+            NomBLL.NuevoEmpleado(empleado);
         }
 
         // PUT api/empleado/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE api/empleado/5

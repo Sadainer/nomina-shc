@@ -13,12 +13,16 @@ namespace BLL
     public class NominaBLL
     {
         NominaDAL Dal = new NominaDAL();
-        public void NuevoEmpleado(EmpleadosDTO Emp)
+        public string NuevoEmpleado(EmpleadosDTO Emp)
         {
+            string res="No funciono";
             empleados em = new empleados();
             Mapper.CreateMap<EmpleadosDTO, empleados>();
             Mapper.Map(Emp, em);
-            Dal.NuevoEmpleado(em);
+            if (Dal.NuevoEmpleado(em)) {
+                res = "Funciono";
+            }
+            return res;
 
         }
         public List<EmpleadosDTO> GetEmpleados()
