@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Empleados.aspx.cs" Inherits="Nomina.WebForm.Empleados1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Contratacion.aspx.cs" Inherits="Nomina.WebForm.Contratacion" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     
@@ -283,10 +283,10 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Registro <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li >
-                                    <a class="active" href="Empleados.aspx" id="mnEmpleado">Empleados</a>
+                                    <a  href="Empleados.aspx" id="mnEmpleado">Empleados</a>
                                 </li>
                                 <li>
-                                     <a  href="Contratacion.aspx" id="mnContratacion">Contratación</a>
+                                     <a class="active" href="Contratacion.aspx" id="mnContratacion">Contratación</a>
                                 </li>
                             </ul>
                         </li>
@@ -363,7 +363,7 @@
     <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Registro Empleados</h1>
+                    <h1 class="page-header">Registro Contratación</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -372,7 +372,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Datos Personales
+                            Datos de 
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -422,10 +422,6 @@
                                                 </div>
                                                 </div>
                                             </div>
-                                         <div class="form-group">
-                                            <label>Dirección</label>
-                                             <input id="txtDireccion" class="form-control" />
-                                        </div>
                                         <div class="form-group"/>
                                             <div class="row">
                                                 <div class="col-lg-4">
@@ -442,22 +438,11 @@
                                             <label>Lugar Nacimiento</label>
                                             <input id="txtLugNac" class="form-control" />
                                         </div>
-                                         
-                                       
-                                    <%--</form>--%>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label>Foto</label><br />
-                                        <img id="blah" width="200" height="200" src="../Imagenes/usuario.png" alt="your image" /><br /><br />
-                                        <input type='file' id="imgInp" />
-                                    </div>
-                                    <div class="form-group">
-                                            <label>Profesión</label>
-                                             <input id="txtProfesion" class="form-control" />
+                                         <div class="form-group">
+                                            <label>Dirección</label>
+                                             <input id="txtDireccion" class="form-control" />
                                         </div>
-                                     <div class="form-group">
+                                        <div class="form-group">
                                              <div class="row">
                                                 <div class="col-lg-4">
                                             <label>Teléfono</label>
@@ -491,21 +476,85 @@
                                                     </div>
                                                 </div>
                                         </div>
-                                    <br />
+                                    <%--</form>--%>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Foto</label><br />
+                                        <img id="blah" width="200" height="200" src="../Imagenes/usuario.png" alt="your image" /><br /><br />
+                                        <input type='file' id="imgInp" />
+                                    </div>
+                                    <div class="form-group">
+                                            <label>Profesión</label>
+                                             <input id="txtProfesion" class="form-control" />
+                                        </div>
+                                    <div class="form-group">
+                                        <label>Cargo</label>
+                                            <select class="form-control" id="txtCargo">
+                                            <option>1</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cargo Jefe Inmediato</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group"/>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <label>Fecha de contratación</label>
+                                                    <div class='input-group date fecha' id='datetimepicker2'>
+                                                        <input type='text' class="form-control" />
+                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Administradora de Salud</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Administradora de Pensión</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ARL</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Caja de Compensación</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
                                     <br />
                                     
                                 </div>
                                     <div class="row">
-                                        
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                        </div>
+                                        <div class="col-lg-4">
                                             <div class="form-group"/>
                                             <div class="row">
-                                                <div class="col-lg-2">
-                                                </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-6">
                                                     <button type="button" id= "BtnGuardar" class="btn btn-primary">Guardar</button>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-6">
                                                     <button type="button" id= "BtnCancelar" class="btn btn-danger">Cancelar</button>
                                                 </div>
                                             </div>

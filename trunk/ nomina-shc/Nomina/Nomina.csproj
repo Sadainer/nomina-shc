@@ -163,6 +163,7 @@
     <Content Include="Content\less\sb-admin-2.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Scripts\Principal.js" />
+    <Content Include="WebForm\Contratacion.aspx" />
     <Content Include="WebForm\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Principal.aspx" />
@@ -238,6 +239,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm\Contratacion.aspx.cs">
+      <DependentUpon>Contratacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Contratacion.aspx.designer.cs">
+      <DependentUpon>Contratacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm\Empleados.aspx.cs">
       <DependentUpon>Empleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -20,7 +20,6 @@ namespace DAL
         public Boolean NuevoEmpleado(empleados Emp)
         {
             Boolean Resp = true;
-            
             db.empleados.Add(Emp);
             try
             {
