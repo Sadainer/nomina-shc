@@ -23,8 +23,8 @@ namespace DAL.Modelo
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public string LugarNacimiento { get; set; }
         public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Celular { get; set; }
+        public Nullable<long> Telefono { get; set; }
+        public Nullable<long> Celular { get; set; }
         public string GrupoSanguineo { get; set; }
         public string Profesion { get; set; }
         public int Cargos_idCargos { get; set; }
