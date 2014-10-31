@@ -9,7 +9,7 @@ using AutoMapper;
 
 namespace DAL
 {
-    public class NominaDAL
+    public class NominaDAL 
     {
         nominashcEntities db = new nominashcEntities();
 
@@ -20,6 +20,7 @@ namespace DAL
         public Boolean NuevoEmpleado(empleados Emp)
         {
             Boolean Resp = true;
+            
             db.empleados.Add(Emp);
             try
             {

@@ -13,19 +13,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/24/2014 15:07:27</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>10/28/2014 08:51:44</publishTime>
+      <publishTime>10/31/2014 11:51:55</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>10/28/2014 08:51:43</publishTime>
+      <publishTime>10/31/2014 11:51:54</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>10/28/2014 08:51:43</publishTime>
+      <publishTime>10/31/2014 11:51:53</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>10/08/2014 11:40:00</publishTime>
+      <publishTime>08/10/2014 11:40:00</publishTime>
     </File>
     <File Include="bin/Nomina.dll">
-      <publishTime>10/28/2014 09:09:52</publishTime>
+      <publishTime>10/31/2014 11:51:56</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>10/22/2014 11:24:49</publishTime>
@@ -208,7 +208,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/23/2014 14:51:55</publishTime>
     </File>
     <File Include="Imagenes/Plaza_Alfonso_Lopez.JPG">
-      <publishTime>10/09/2014 17:14:40</publishTime>
+      <publishTime>09/10/2014 17:14:40</publishTime>
     </File>
     <File Include="Imagenes/usuario.png">
       <publishTime>10/23/2014 15:34:45</publishTime>
@@ -369,6 +369,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="sb-admin-2/grid.html">
       <publishTime>10/20/2014 09:01:40</publishTime>
     </File>
+    <File Include="sb-admin-2/HtmlPage1.html">
+      <publishTime>10/29/2014 15:49:34</publishTime>
+    </File>
     <File Include="sb-admin-2/index.html">
       <publishTime>10/20/2014 16:40:30</publishTime>
     </File>
@@ -505,7 +508,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2014 17:05:07</publishTime>
     </File>
     <File Include="Scripts/Principal.js">
-      <publishTime>10/24/2014 16:51:55</publishTime>
+      <publishTime>10/31/2014 10:12:37</publishTime>
     </File>
     <File Include="Scripts/sb-admin-2.js">
       <publishTime>10/20/2014 17:04:24</publishTime>
@@ -514,7 +517,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/28/2014 09:09:52</publishTime>
     </File>
     <File Include="WebForm/Empleados.aspx">
-      <publishTime>10/24/2014 16:59:20</publishTime>
+      <publishTime>10/31/2014 11:51:38</publishTime>
     </File>
     <File Include="WebForm/login.aspx">
       <publishTime>10/17/2014 15:52:17</publishTime>

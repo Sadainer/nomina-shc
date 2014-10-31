@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="nominashcModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="nominashcModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="nominashcModelStoreContainer">
           <EntitySet Name="cargos" EntityType="nominashcModel.Store.cargos" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="empleados" EntityType="nominashcModel.Store.empleados" store:Type="Tables" Schema="nominashc" />
@@ -30,9 +30,9 @@
           <Property Name="ApellidoS" Type="varchar" MaxLength="45" />
           <Property Name="Sexo" Type="char" MaxLength="1" />
           <Property Name="EstadoCivil" Type="varchar" MaxLength="10" />
-          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="FechaNacimiento" Type="datetime" />
           <Property Name="LugarNacimiento" Type="varchar" MaxLength="45" />
-          <Property Name="Direccion" Type="varchar" MaxLength="90" />
+          <Property Name="Direccion" Type="varchar" MaxLength="45" />
           <Property Name="Telefono" Type="mediumtext" />
           <Property Name="Celular" Type="mediumtext" />
           <Property Name="GrupoSanguineo" Type="varchar" MaxLength="3" />
@@ -51,8 +51,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="nominashcModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

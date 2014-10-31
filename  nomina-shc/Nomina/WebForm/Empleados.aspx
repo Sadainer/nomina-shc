@@ -396,15 +396,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Segundo apellido</label>
-                                            <input id="txtApellido" class="form-control"/>
+                                            <input id="txtApellidoS" class="form-control"/>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <label>Sexo</label>
                                                     <select class="form-control" id="txtSexo">
-                                                        <option>Masculino</option>
-                                                        <option>Femenino</option>
+                                                        <option value ="M">Masculino</option>
+                                                        <option value ="F">Femenino</option>
                                                     </select>
                                                     </div>
                                                 </div>
@@ -492,8 +492,7 @@
                                     <div class="form-group">
                                         <label>Cargo</label>
                                             <select class="form-control" id="txtCargo">
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
+                                            <option>1</option>
                                         </select> 
                                     </div>
                                     <div class="form-group">

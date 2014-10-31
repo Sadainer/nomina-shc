@@ -27,14 +27,47 @@
         Emp.Sexo = $("#txtSexo").val();
         Emp.EstadoCivil = $("#txtEstadoCivil").val();
         Emp.FechaNacimiento = $("#txtFechaNac").val();
-        Emp.LugarNacimiento = $("#txtLugarNac").val();
+        Emp.LugarNacimiento = $("#txtLugNac").val();
         Emp.Direccion = $("#txtDireccion").val();
         Emp.Telefono = $("#txtTelefono").val();
         Emp.Celular = $("#txtCelular").val();
         Emp.GrupoSanguineo = $("#txtGrupoSanguineo").val();
         Emp.Profesion = $("#txtProfesion").val();
         Emp.Cargos_idCargos = $("#txtCargo").val();
-        //alert(JSON.stringify(parametrosJSON));
         alert(JSON.stringify(Emp));
+       
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:56431/api/empleado",
+                data: JSON.stringify(Emp),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                success: function (result) {
+                    alert(JSON.stringify(result));
+                },
+                error: function (result) {
+                    alert(JSON.stringify(result));
+                    alert("Error" + result);
+                },
+            });
+    });
+    $("#BtnCancelar").click(function () {
+       
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:56431/api/empleado",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            async: true,
+            success: function (result) {
+                alert("Funciona  " + result.ApellidoP);
+            },
+            error: function (result) {
+                alert(JSON.stringify(result));
+                alert("Error" + result);
+            },
+        });
     });
 });
