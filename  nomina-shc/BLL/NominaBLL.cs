@@ -15,12 +15,12 @@ namespace BLL
         NominaDAL Dal = new NominaDAL();
         public string NuevoEmpleado(EmpleadosDTO Emp)
         {
-            string res="No funciono";
+            string res="Error al guardar";
             empleados em = new empleados();
             Mapper.CreateMap<EmpleadosDTO, empleados>();
             Mapper.Map(Emp, em);
             if (Dal.NuevoEmpleado(em)) {
-                res = "Funciono";
+                res = "Empleado guardado exitosamente";
             }
             return res;
 

@@ -34,7 +34,6 @@
         Emp.GrupoSanguineo = $("#txtGrupoSanguineo").val();
         Emp.Profesion = $("#txtProfesion").val();
         Emp.Cargos_idCargos = $("#txtCargo").val();
-        alert(JSON.stringify(Emp));
        
             $.ajax({
                 type: "POST",
@@ -45,10 +44,10 @@
                 async: true,
                 success: function (result) {
                     alert(JSON.stringify(result));
+                    $(".form-control").val("");
                 },
                 error: function (result) {
                     alert(JSON.stringify(result));
-                    alert("Error" + result);
                 },
             });
     });

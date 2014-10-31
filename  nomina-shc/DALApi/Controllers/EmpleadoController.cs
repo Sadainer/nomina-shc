@@ -35,9 +35,9 @@ namespace DALApi.Controllers
         [ResponseType(typeof(EmpleadosDTO))]
         [Route("")]
         [HttpPost]
-        public void Post(EmpleadosDTO empleado)
+        public string Post(EmpleadosDTO empleado)
         {
-            NomBLL.NuevoEmpleado(empleado);
+           return NomBLL.NuevoEmpleado(empleado);
         }
 
         // PUT api/empleado/5
