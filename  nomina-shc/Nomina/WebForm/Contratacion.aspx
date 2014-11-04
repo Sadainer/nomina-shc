@@ -404,31 +404,83 @@
                                             <label>Segundo apellido</label>
                                             <input id="txtApellidoS" class="form-control" disabled="disabled"/>
                                         </div>
+                                        <div class="form-group"/>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label>Fecha de contratación</label>
+                                                        <div class='input-group date fecha' id='txtFechaNac'>
+                                                            <input type='text' class="form-control" />
+                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group"/>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <label>Fecha de Terminación</label>
+                                                            <div class='input-group date fecha' id='Div1'>
+                                                                <input type='text' class="form-control" />
+                                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label>Duración:</label>
+                                                        </div>
+                                                    </div>
+                                            </div>
                                         <div class="form-group">
-                                        <label>Cargo</label>
+                                            <label>Departamento</label>
                                             <select class="form-control" id="Select1">
-                                            <option>1</option>
-                                        </select> 
-                                    </div>
+                                             <option>1</option>
+                                            </select> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Cargo</label>
+                                            <select class="form-control" id="Select2">
+                                             <option>1</option>
+                                            </select> 
+                                        </div>
                                     <div class="form-group">
-                                        <label>Cargo Jefe Inmediato</label>
+                                        <label>Tipo de contrato</label>
                                             <select class="form-control">
                                             <option>Masculino</option>
                                             <option>Femenino</option>
                                         </select> 
                                     </div>
-                                    <div class="form-group"/>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label>Fecha de contratación</label>
-                                                    <div class='input-group date fecha' id='txtFechaNac'>
-                                                        <input type='text' class="form-control" />
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="form-group">
+                                        <label>Tipo de jornada</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
                                     </div>
+                                    <div class="form-group">
+                                        <label>Periodo de pago</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                       
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                            <label>Banco</label>
+                                            <select class="form-control">
+                                                <option>Bancolombia</option>
+                                                <option>Banco de Bogotá</option>
+                                            </select> 
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>Número de cuenta</label>
+                                                <input type='text' class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
                                     <div class="form-group">
                                         <label>Administradora de Salud</label>
                                             <select class="form-control">
