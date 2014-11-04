@@ -14,14 +14,7 @@ namespace DAL.Modelo
     
     public partial class cargos
     {
-        public cargos()
-        {
-            this.empleados = new HashSet<empleados>();
-        }
-    
         public int idCargos { get; set; }
         public string Nombre { get; set; }
-    
-        public virtual ICollection<empleados> empleados { get; set; }
     }
 }

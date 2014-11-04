@@ -37,7 +37,7 @@
        
             $.ajax({
                 type: "POST",
-                url: "http://localhost:56431/api/empleado",
+                url: "http://localhost/NominaAPI/api/empleado",
                 data: JSON.stringify(Emp),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -56,12 +56,12 @@
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:56431/api/empleado",
+            url: "http://localhost/NominaAPI/api/empleado",
             contentType: "application/json; charset=utf-8",
-            dataType: "jsonp",
+            dataType: "json",
             async: true,
             success: function (result) {
-                alert("Funciona  " + result.ApellidoP);
+                alert("Funciona  " + JSON.stringify(result));
             },
             error: function (result) {
                 alert(JSON.stringify(result));

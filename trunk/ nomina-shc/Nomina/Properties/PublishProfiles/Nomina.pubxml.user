@@ -13,19 +13,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/31/2014 15:13:03</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>10/31/2014 15:22:38</publishTime>
+      <publishTime>11/04/2014 10:24:24</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>10/31/2014 15:22:38</publishTime>
+      <publishTime>11/04/2014 10:24:24</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>10/31/2014 11:51:53</publishTime>
+      <publishTime>11/04/2014 10:24:23</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/08/2014 11:40:00</publishTime>
     </File>
     <File Include="bin/Nomina.dll">
-      <publishTime>10/31/2014 15:22:39</publishTime>
+      <publishTime>11/04/2014 10:26:18</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>10/22/2014 11:24:49</publishTime>
@@ -508,7 +508,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2014 17:05:07</publishTime>
     </File>
     <File Include="Scripts/Principal.js">
-      <publishTime>10/31/2014 15:22:25</publishTime>
+      <publishTime>04/11/2014 10:14:45</publishTime>
     </File>
     <File Include="Scripts/sb-admin-2.js">
       <publishTime>10/20/2014 17:04:24</publishTime>
@@ -516,8 +516,11 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Web.config">
       <publishTime>10/28/2014 09:09:52</publishTime>
     </File>
+    <File Include="WebForm/Contratacion.aspx">
+      <publishTime>10/31/2014 17:17:40</publishTime>
+    </File>
     <File Include="WebForm/Empleados.aspx">
-      <publishTime>10/31/2014 11:51:38</publishTime>
+      <publishTime>10/31/2014 16:36:11</publishTime>
     </File>
     <File Include="WebForm/login.aspx">
       <publishTime>10/17/2014 15:52:17</publishTime>
