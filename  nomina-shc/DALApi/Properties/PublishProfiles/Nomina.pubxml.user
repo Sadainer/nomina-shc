@@ -10,40 +10,46 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AutoMapper.dll">
-      <publishTime>10/24/2014 15:07:27</publishTime>
+      <publishTime>10/31/2014 15:13:03</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>10/29/2014 16:06:47</publishTime>
+      <publishTime>11/04/2014 10:24:24</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>10/28/2014 16:51:20</publishTime>
+      <publishTime>11/04/2014 10:24:24</publishTime>
     </File>
     <File Include="bin/DALApi.dll">
-      <publishTime>10/29/2014 16:06:49</publishTime>
+      <publishTime>11/04/2014 10:24:24</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>10/28/2014 08:51:43</publishTime>
+      <publishTime>11/04/2014 10:24:23</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>08/10/2014 11:40:00</publishTime>
+      <publishTime>10/08/2014 11:40:00</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
-      <publishTime>10/24/2014 09:41:20</publishTime>
+      <publishTime>10/31/2014 10:00:15</publishTime>
     </File>
     <File Include="bin/es/System.Web.Http.resources.dll">
-      <publishTime>10/24/2014 09:41:20</publishTime>
+      <publishTime>10/31/2014 10:00:15</publishTime>
     </File>
     <File Include="bin/es/System.Web.Http.WebHost.resources.dll">
       <publishTime>10/24/2014 09:41:20</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/24/2014 09:41:18</publishTime>
+      <publishTime>10/31/2014 09:59:56</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>10/24/2014 09:41:19</publishTime>
+      <publishTime>10/31/2014 09:59:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>10/31/2014 09:59:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>10/31/2014 09:59:56</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>10/24/2014 09:41:19</publishTime>
+      <publishTime>10/31/2014 09:59:56</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>10/24/2014 09:41:19</publishTime>
@@ -52,10 +58,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/24/2014 09:41:16</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/24/2014 15:05:02</publishTime>
+      <publishTime>10/31/2014 10:00:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/28/2014 16:51:23</publishTime>
+      <publishTime>11/04/2014 08:29:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

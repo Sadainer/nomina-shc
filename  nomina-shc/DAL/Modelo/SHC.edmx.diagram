@@ -7,7 +7,6 @@
       <Diagram DiagramId="4e0585ad0f9b4f19a370dda9fbcb0e82" Name="Diagrama1">
         <EntityTypeShape EntityType="nominashcModel.cargos" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.empleados" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="nominashcModel.fk_Empleados_Cargos" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

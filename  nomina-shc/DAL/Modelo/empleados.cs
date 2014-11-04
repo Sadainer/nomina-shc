@@ -27,8 +27,5 @@ namespace DAL.Modelo
         public Nullable<long> Celular { get; set; }
         public string GrupoSanguineo { get; set; }
         public string Profesion { get; set; }
-        public int Cargos_idCargos { get; set; }
-    
-        public virtual cargos cargos { get; set; }
     }
 }

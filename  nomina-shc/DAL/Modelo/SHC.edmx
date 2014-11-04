@@ -4,14 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="nominashcModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="nominashcModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="nominashcModelStoreContainer">
           <EntitySet Name="cargos" EntityType="nominashcModel.Store.cargos" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="empleados" EntityType="nominashcModel.Store.empleados" store:Type="Tables" Schema="nominashc" />
-          <AssociationSet Name="fk_Empleados_Cargos" Association="nominashcModel.Store.fk_Empleados_Cargos">
-            <End Role="cargos" EntitySet="cargos" />
-            <End Role="empleados" EntitySet="empleados" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="cargos">
           <Key>
@@ -37,32 +33,14 @@
           <Property Name="Celular" Type="bigint" />
           <Property Name="GrupoSanguineo" Type="varchar" MaxLength="3" />
           <Property Name="Profesion" Type="varchar" MaxLength="45" />
-          <Property Name="Cargos_idCargos" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="fk_Empleados_Cargos">
-          <End Role="cargos" Type="nominashcModel.Store.cargos" Multiplicity="1" />
-          <End Role="empleados" Type="nominashcModel.Store.empleados" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cargos">
-              <PropertyRef Name="idCargos" />
-            </Principal>
-            <Dependent Role="empleados">
-              <PropertyRef Name="Cargos_idCargos" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="nominashcModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="nominashcEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="cargos" EntityType="nominashcModel.cargos" />
           <EntitySet Name="empleados" EntityType="nominashcModel.empleados" />
-          <AssociationSet Name="fk_Empleados_Cargos" Association="nominashcModel.fk_Empleados_Cargos">
-            <End Role="cargos" EntitySet="cargos" />
-            <End Role="empleados" EntitySet="empleados" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="cargos">
           <Key>
@@ -70,7 +48,6 @@
           </Key>
           <Property Name="idCargos" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="empleados" Relationship="nominashcModel.fk_Empleados_Cargos" FromRole="cargos" ToRole="empleados" />
         </EntityType>
         <EntityType Name="empleados">
           <Key>
@@ -89,21 +66,7 @@
           <Property Name="Celular" Type="Int64" />
           <Property Name="GrupoSanguineo" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
           <Property Name="Profesion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Cargos_idCargos" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="cargos" Relationship="nominashcModel.fk_Empleados_Cargos" FromRole="empleados" ToRole="cargos" />
         </EntityType>
-        <Association Name="fk_Empleados_Cargos">
-          <End Role="cargos" Type="nominashcModel.cargos" Multiplicity="1" />
-          <End Role="empleados" Type="nominashcModel.empleados" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cargos">
-              <PropertyRef Name="idCargos" />
-            </Principal>
-            <Dependent Role="empleados">
-              <PropertyRef Name="Cargos_idCargos" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -134,7 +97,6 @@
                 <ScalarProperty Name="Celular" ColumnName="Celular" />
                 <ScalarProperty Name="GrupoSanguineo" ColumnName="GrupoSanguineo" />
                 <ScalarProperty Name="Profesion" ColumnName="Profesion" />
-                <ScalarProperty Name="Cargos_idCargos" ColumnName="Cargos_idCargos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

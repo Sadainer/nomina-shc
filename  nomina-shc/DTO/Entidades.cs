@@ -14,13 +14,12 @@ namespace DTO
             public string ApellidoS { get; set; }
             public string Sexo { get; set; }
             public string EstadoCivil { get; set; }
-            public string FechaNacimiento { get; set; }
+            public System.DateTime FechaNacimiento { get; set; }
             public string LugarNacimiento { get; set; }
             public string Direccion { get; set; }
-            public string Telefono { get; set; }
-            public string Celular { get; set; }
+            public long Telefono { get; set; }
+            public long Celular { get; set; }
             public string GrupoSanguineo { get; set; }
             public string Profesion { get; set; }
-            public int Cargos_idCargos { get; set; }
         }
 }
