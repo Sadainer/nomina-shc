@@ -70,6 +70,7 @@
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="datepicker\css\bootstrap-datetimepicker.css" />
     <Content Include="datepicker\css\bootstrap-datetimepicker.min.css" />
@@ -78,7 +79,9 @@
     <Content Include="datepicker\js\moment.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="HtmlPage1.html" />
-    <Content Include="HtmlPage2.html" />
+    <Content Include="Scripts\Contratacion.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="WebForm\HtmlPage2.html" />
     <Content Include="Imagenes\Plaza_Alfonso_Lopez.JPG" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -163,11 +166,11 @@
     <Content Include="Content\less\sb-admin-2.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Scripts\Principal.js" />
+    <Content Include="Scripts\typeahead.js" />
     <Content Include="WebForm\Contratacion.aspx" />
     <Content Include="WebForm\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Empleados.aspx" />
     <Content Include="WebForm\MasterFailed\Principal.aspx" />
-    <Content Include="WebForm\WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\Nomina.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="sb-admin-2\blank.html" />
@@ -280,13 +283,6 @@
     </Compile>
     <Compile Include="WebForm\MasterFailed\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

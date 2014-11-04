@@ -26,7 +26,7 @@
         Emp.ApellidoS = $("#txtApellidoS").val();
         Emp.Sexo = $("#txtSexo").val();
         Emp.EstadoCivil = $("#txtEstadoCivil").val();
-        Emp.FechaNacimiento = $("#txtFechaNac").val();
+        Emp.FechaNacimiento = Date.parse($("#txtFechaNac").val());
         Emp.LugarNacimiento = $("#txtLugNac").val();
         Emp.Direccion = $("#txtDireccion").val();
         Emp.Telefono = $("#txtTelefono").val();
@@ -34,14 +34,15 @@
         Emp.GrupoSanguineo = $("#txtGrupoSanguineo").val();
         Emp.Profesion = $("#txtProfesion").val();
         Emp.Cargos_idCargos = $("#txtCargo").val();
-       
+
+        alert(JSON.stringify(Emp));
             $.ajax({
                 type: "POST",
                 url: "http://localhost/NominaAPI/api/empleado",
                 data: JSON.stringify(Emp),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                async: true,
+                async: false,
                 success: function (result) {
                     alert(JSON.stringify(result));
                     $(".form-control").val("");

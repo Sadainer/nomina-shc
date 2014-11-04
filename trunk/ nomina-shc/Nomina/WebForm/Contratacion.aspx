@@ -13,6 +13,7 @@
     <link href="../Content/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"/>
     <link href="../Content/sb-admin-2.css" rel="stylesheet"/>
     <link href="../Content/plugins/morris.css" rel="stylesheet"/>
+    <link href="../Content/main.css" rel="stylesheet" />
 
     <script src="../Scripts/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
@@ -20,7 +21,8 @@
     <script src="../datepicker/js/bootstrap-datetimepicker.js"></script>
     <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
     <script src="../Scripts/sb-admin-2.js"></script>
-    <script src="../Scripts/Principal.js"></script>
+    <script src="../Scripts/typeahead.js"></script>
+    <script src="../Scripts/Contratacion.js"></script>
 
 
 </head>
@@ -380,23 +382,27 @@
                                     <%--<form role="form" runat="server">--%>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-7">
                                                     <label>Cédula</label>
-                                                    <input id="txtCedula" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+                                                    <input id="txtCedula" class="form-control typeahead" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <br />
+                                                    <button type="button" id= "btnAgregar" class="btn btn-info">+</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombres</label>
-                                            <input id="txtNombre"class="form-control"/>
+                                            <input class="form-control" id="txtNombre" type="text"  disabled="disabled"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Primer apellido</label>
-                                            <input id="txtApellidoP" class="form-control"/>
+                                            <input id="txtApellidoP" class="form-control" disabled="disabled"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Segundo apellido</label>
-                                            <input id="txtApellidoS" class="form-control"/>
+                                            <input id="txtApellidoS" class="form-control" disabled="disabled"/>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
@@ -567,7 +573,6 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                
-    </form>
+        </form>         
 </body>
 </html>

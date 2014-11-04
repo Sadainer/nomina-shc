@@ -15,6 +15,10 @@ namespace DTO
             public string Sexo { get; set; }
             public string EstadoCivil { get; set; }
             public System.DateTime FechaNacimiento { get; set; }
+            //public string Fecha { get; set; }
+            //public System.DateTime FechaNacimiento { get {
+            //return Convert.ToDateTime(Fecha);
+            //} }
             public string LugarNacimiento { get; set; }
             public string Direccion { get; set; }
             public long Telefono { get; set; }

@@ -21,6 +21,7 @@
     <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
     <script src="../Scripts/sb-admin-2.js"></script>
     <script src="../Scripts/Principal.js"></script>
+    <script src="../Scripts/date.js"></script>
 
 
 </head>
