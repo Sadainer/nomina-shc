@@ -382,13 +382,13 @@
                                     <%--<form role="form" runat="server">--%>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-8">
                                                     <label>Cédula</label>
                                                     <input id="txtCedula" class="form-control typeahead" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-2">
                                                     <br />
-                                                    <button type="button" id= "btnAgregar" class="btn btn-info">+</button>
+                                                    <button type="button" id= "btnAgregar" class="btn btn-info">Cargar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -405,83 +405,58 @@
                                             <input id="txtApellidoS" class="form-control" disabled="disabled"/>
                                         </div>
                                         <div class="form-group">
+                                        <label>Cargo</label>
+                                            <select class="form-control" id="Select1">
+                                            <option>1</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cargo Jefe Inmediato</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group"/>
                                             <div class="row">
                                                 <div class="col-lg-4">
-                                                    <label>Sexo</label>
-                                                    <select class="form-control" id="txtSexo">
-                                                        <option value ="M">Masculino</option>
-                                                        <option value ="F">Femenino</option>
-                                                    </select>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label>Estado Civil</label>
-                                                    <select class="form-control" id="txtEstadoCivil">
-                                                        <option selected="selected">Soltero(a)</option>
-                                                        <option>Casado(a)</option>
-                                                        <option>Divorciado(a)</option>
-                                                        <option>Viudo(a)</option>
-                                                    </select>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        <div class="form-group"/>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label>Fecha de nacimiento</label>
-                                                    <div class='input-group date fecha'>
-                                                        <input type='text' class="form-control" id="txtFechaNac"/>
+                                                    <label>Fecha de contratación</label>
+                                                    <div class='input-group date fecha' id='txtFechaNac'>
+                                                        <input type='text' class="form-control" />
                                                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Lugar Nacimiento</label>
-                                            <input id="txtLugNac" class="form-control" />
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Dirección</label>
-                                             <input id="txtDireccion" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                             <div class="row">
-                                                <div class="col-lg-4">
-                                            <label>Teléfono</label>
-                                            <input id="txtTelefono" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                            <label>Celular</label>
-                                            <input id="txtCelular" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        
-                                         <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label>Grupo Sanguíneo</label>
-                                                    <select class="form-control" id="txtGrupoSanguineo">
-                                                        <option selected="selected">O+</option>
-                                                        <option>O-</option>
-                                                        <option>A-</option>
-                                                        <option>A+</option>
-                                                        <option>B-</option>
-                                                        <option>B+</option>
-                                                        <option>AB-</option>
-                                                        <option>AB+</option>
-                                                    </select>
-                                                    </div>
-                                                </div>
-                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Administradora de Salud</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Administradora de Pensión</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ARL</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Caja de Compensación</label>
+                                            <select class="form-control">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select> 
+                                    </div>
                                     <%--</form>--%>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
