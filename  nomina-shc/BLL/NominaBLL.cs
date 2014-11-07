@@ -33,6 +33,14 @@ namespace BLL
             return Em;
 
         }
+        public EmpleadosDTO GetEmple(int id)
+        {
+            EmpleadosDTO Emp = new EmpleadosDTO();
+            Mapper.CreateMap<empleados, EmpleadosDTO>();
+            Mapper.Map(Dal.GetEmple(id), Emp);
+            return Emp;
+
+        }
     }
 }
       

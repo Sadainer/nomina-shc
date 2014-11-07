@@ -14,6 +14,24 @@
     $("#imgInp").change(function () {
         readURL(this);
     });
+    $("#txtCedula").focusout(function () {
+        Invitado = $("#txtCedula").val();
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost/NominaAPI/api/empleado/" + Invitado,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (Inv) {
+                $("#GrCedula").removeClass("has-success").addClass("has-warning")
+                alert("Cédula ya registrada");
+            },
+            error: function (result) {
+                $("#GrCedula").removeClass("has-warning").addClass("has-success")
+            }
+        });
+    });
     $('.fecha').datetimepicker({
         language: "es",
         pickTime: false
