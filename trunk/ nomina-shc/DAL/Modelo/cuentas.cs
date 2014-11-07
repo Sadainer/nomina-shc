@@ -12,18 +12,18 @@ namespace DAL.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class cargos
+    public partial class cuentas
     {
-        public cargos()
+        public cuentas()
         {
             this.vinculaciones = new HashSet<vinculaciones>();
         }
     
-        public int idCargos { get; set; }
-        public string Nombre { get; set; }
-        public int idDepartamento { get; set; }
+        public int NoCuenta { get; set; }
+        public string TipoCuenta { get; set; }
+        public int idBanco { get; set; }
     
-        public virtual departamentos departamentos { get; set; }
+        public virtual bancos bancos { get; set; }
         public virtual ICollection<vinculaciones> vinculaciones { get; set; }
     }
 }

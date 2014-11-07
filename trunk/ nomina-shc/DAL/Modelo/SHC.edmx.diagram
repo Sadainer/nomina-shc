@@ -7,6 +7,29 @@
       <Diagram DiagramId="4e0585ad0f9b4f19a370dda9fbcb0e82" Name="Diagrama1">
         <EntityTypeShape EntityType="nominashcModel.cargos" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.empleados" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nominashcModel.arl" Width="1.5" PointX="5.2331420226176926" PointY="29.364563389385381" />
+        <EntityTypeShape EntityType="nominashcModel.bancos" Width="1.5" PointX="9.7177146625321882" PointY="22.372481505559982" />
+        <EntityTypeShape EntityType="nominashcModel.ccf" Width="1.5" PointX="6.1333882017682253" PointY="22.039048905502561" />
+        <EntityTypeShape EntityType="nominashcModel.cuentas" Width="1.5" PointX="7.8625498487905361" PointY="12.245147099832607" />
+        <EntityTypeShape EntityType="nominashcModel.departamentos" Width="1.5" PointX="0.83412870431045483" PointY="5.43796047821546" />
+        <EntityTypeShape EntityType="nominashcModel.empleadoempresa" Width="1.5" PointX="5.9591723559234158" PointY="5.1217131489523284" />
+        <EntityTypeShape EntityType="nominashcModel.empresas" Width="1.5" PointX="2.0866639996351042" PointY="9.9710313426195789" />
+        <EntityTypeShape EntityType="nominashcModel.eps" Width="1.5" PointX="8.1885865871741359" PointY="29.289215041924834" />
+        <EntityTypeShape EntityType="nominashcModel.fotos" Width="1.5" PointX="6.5500781454844761" PointY="6.47262069884344" />
+        <EntityTypeShape EntityType="nominashcModel.pension" Width="1.5" PointX="3.7722013107371524" PointY="16.588176183676428" />
+        <EntityTypeShape EntityType="nominashcModel.vinculaciones" Width="1.5" PointX="8.5171092415773817" PointY="30.257642372631302" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_ARL1" />
+        <AssociationConnector Association="nominashcModel.fk_Cuentas_Bancos1" />
+        <AssociationConnector Association="nominashcModel.fk_Cargos_Departamentos" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Cargos1" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_CCF1" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Cuentas1" />
+        <AssociationConnector Association="nominashcModel.fk_EmpleadoEmpresa_Empleados1" />
+        <AssociationConnector Association="nominashcModel.fk_EmpleadoEmpresa_Empresas1" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_EmpleadoEmpresa1" />
+        <AssociationConnector Association="nominashcModel.fk_Fotos_Empleados1" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_EPS1" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Pension1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

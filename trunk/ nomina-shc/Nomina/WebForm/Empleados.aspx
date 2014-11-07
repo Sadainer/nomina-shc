@@ -253,7 +253,7 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Search..."/>
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -287,7 +287,7 @@
                                     <a class="active" href="Empleados.aspx" id="mnEmpleado">Empleados</a>
                                 </li>
                                 <li>
-                                     <a  href="Contratacion.aspx" id="mnContratacion">Contratación</a>
+                                     <a href="Vinculacion.aspx" id="mnContratacion">Ingreso a Nómina</a>
                                 </li>
                             </ul>
                         </li>
@@ -361,7 +361,7 @@
             <!-- /.navbar-static-side -->
         </nav>
     <form id="form1" runat="server">
-    <div id="page-wrapper">
+    <div id="page-wrapper"/>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Registro Empleados</h1>
@@ -379,10 +379,10 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <%--<form role="form" runat="server">--%>
-                                        <div class="form-group">
+                                        <div class="form-group" id="GrCedula">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <label>Cédula</label>
+                                                    <label class="control-label">Cédula</label>
                                                     <input id="txtCedula" class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                                                 </div>
                                             </div>
@@ -429,7 +429,7 @@
                                         </div>
                                         <div class="form-group"/>
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-6">
                                                     <label>Fecha de nacimiento</label>
                                                     <div class='input-group date fecha'>
                                                         <input type='text' class="form-control" id="txtFechaNac"/>

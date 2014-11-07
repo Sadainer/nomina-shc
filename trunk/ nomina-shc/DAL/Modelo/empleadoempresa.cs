@@ -12,18 +12,18 @@ namespace DAL.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class cargos
+    public partial class empleadoempresa
     {
-        public cargos()
+        public empleadoempresa()
         {
             this.vinculaciones = new HashSet<vinculaciones>();
         }
     
-        public int idCargos { get; set; }
-        public string Nombre { get; set; }
-        public int idDepartamento { get; set; }
+        public int idEmpleado { get; set; }
+        public int idEmpresa { get; set; }
     
-        public virtual departamentos departamentos { get; set; }
+        public virtual empleados empleados { get; set; }
+        public virtual empresas empresas { get; set; }
         public virtual ICollection<vinculaciones> vinculaciones { get; set; }
     }
 }

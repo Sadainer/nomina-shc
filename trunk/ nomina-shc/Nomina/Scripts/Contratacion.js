@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var states = [];
-    var Invi = {};
+    var Invitado;
     $.ajax({
             type: "GET",
             url: "http://localhost/NominaAPI/api/empleado",
@@ -10,7 +10,8 @@
             success: function (result) {
 
                 $.each(result, function (key, value) {
-                    states.push(value.idEmpleado + "-" + value.Nombre + "-" + value.ApellidoP + "-" + value.ApellidoS);
+                    //states.push(value.idEmpleado + "-" + value.Nombre + "-" + value.ApellidoP + "-" + value.ApellidoS);
+                    states.push(value.idEmpleado);
                 });
             
             },
@@ -45,15 +46,61 @@
         source: substringMatcher(states)
     });
     $("#btnAgregar").click(function () {
-        var Invitado = $("#txtCedula").val();
-        var strs = Invitado.split("-")
-        Invi.idEmpleado = strs[0];
-        Invi.Nombre = strs[1];
-        Invi.ApellidoP = strs[2];
-        Invi.ApellidoS = strs[3];
-        $("#txtCedula").val(Invi.idEmpleado);
-        $("#txtNombre").val(Invi.Nombre);
-        $("#txtApellidoP").val(Invi.ApellidoP);
-        $("#txtApellidoS").val(Invi.ApellidoS);
+        Invitado = $("#txtCedula").val();
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost/NominaAPI/api/empleado/" + Invitado,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (Inv) {
+                $("#GrCedula").removeClass("has-warning").addClass("has-success")
+                $("#txtNombre").val(Inv.Nombre);
+                $("#txtApellidoP").val(Inv.ApellidoP);
+                $("#txtApellidoS").val(Inv.ApellidoS);
+            },
+            error: function (result) {
+                $("#GrCedula").removeClass("has-success").addClass("has-warning")
+                $("#txtNombre").val("");
+                $("#txtApellidoP").val("");
+                $("#txtApellidoS").val("");
+                
+            }
+        });
+    });
+    $("#BtnGuardar").click(function () {
+        Emp = {};
+        Emp.idEmpleado = $("#txtCedula").val();
+        Emp.Nombre = $("#txtNombre").val();
+        Emp.ApellidoP = $("#txtApellidoP").val();
+        Emp.ApellidoS = $("#txtApellidoS").val();
+        Emp.Sexo = $("#txtSexo").val();
+        Emp.EstadoCivil = $("#txtEstadoCivil").val();
+        Emp.FechaNacimiento = Date.parse($("#txtFechaNac").val());
+        Emp.LugarNacimiento = $("#txtLugNac").val();
+        Emp.Direccion = $("#txtDireccion").val();
+        Emp.Telefono = $("#txtTelefono").val();
+        Emp.Celular = $("#txtCelular").val();
+        Emp.GrupoSanguineo = $("#txtGrupoSanguineo").val();
+        Emp.Profesion = $("#txtProfesion").val();
+        Emp.Cargos_idCargos = $("#txtCargo").val();
+
+        alert(JSON.stringify(Emp));
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/NominaAPI/api/empleado",
+            data: JSON.stringify(Emp),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (result) {
+                alert(JSON.stringify(result));
+                $(".form-control").val("");
+            },
+            error: function (result) {
+                alert(JSON.stringify(result));
+            },
+        });
     });
 });

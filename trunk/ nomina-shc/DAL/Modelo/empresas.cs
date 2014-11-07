@@ -12,28 +12,16 @@ namespace DAL.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class empleados
+    public partial class empresas
     {
-        public empleados()
+        public empresas()
         {
             this.empleadoempresa = new HashSet<empleadoempresa>();
         }
     
-        public int idEmpleado { get; set; }
+        public int idEmpresa { get; set; }
         public string Nombre { get; set; }
-        public string ApellidoP { get; set; }
-        public string ApellidoS { get; set; }
-        public string Sexo { get; set; }
-        public string EstadoCivil { get; set; }
-        public Nullable<System.DateTime> FechaNacimiento { get; set; }
-        public string LugarNacimiento { get; set; }
-        public string Direccion { get; set; }
-        public Nullable<long> Telefono { get; set; }
-        public Nullable<long> Celular { get; set; }
-        public string GrupoSanguineo { get; set; }
-        public string Profesion { get; set; }
     
         public virtual ICollection<empleadoempresa> empleadoempresa { get; set; }
-        public virtual fotos fotos { get; set; }
     }
 }

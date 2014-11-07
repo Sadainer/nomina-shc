@@ -17,6 +17,10 @@ namespace DAL
         {
             return db.empleados.ToList();
         }
+        public empleados GetEmple(int id)
+        {
+            return db.empleados.Find(id);
+        }
         public Boolean NuevoEmpleado(empleados Emp)
         {
             Boolean Resp = true;

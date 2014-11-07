@@ -26,9 +26,18 @@ namespace DALApi.Controllers
         }
 
         // GET api/empleado/5
-        public string Get(int id)
+        [ResponseType(typeof(EmpleadosDTO))]
+        [Route("{id:int}")]
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            EmpleadosDTO Emp = NomBLL.GetEmple(id);
+            
+            if (Emp.idEmpleado == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(Emp);
         }
 
         // POST api/empleado

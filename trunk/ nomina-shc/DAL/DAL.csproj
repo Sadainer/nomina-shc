@@ -46,10 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\arl.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\bancos.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\cargos.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ccf.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\cuentas.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\departamentos.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\empleadoempresa.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\empleados.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\empresas.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\eps.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fotos.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\pension.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\SHC.Context.cs">
@@ -66,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SHC.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\vinculaciones.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="NominaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
