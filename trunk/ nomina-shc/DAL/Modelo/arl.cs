@@ -19,8 +19,9 @@ namespace DAL.Modelo
             this.vinculaciones = new HashSet<vinculaciones>();
         }
     
-        public int idARL { get; set; }
+        public string NitARL { get; set; }
         public string Nombre { get; set; }
+        public string CodPila { get; set; }
     
         public virtual ICollection<vinculaciones> vinculaciones { get; set; }
     }

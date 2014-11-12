@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="nominashcModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="nominashcModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="nominashcModelStoreContainer">
           <EntitySet Name="arl" EntityType="nominashcModel.Store.arl" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="bancos" EntityType="nominashcModel.Store.bancos" store:Type="Tables" Schema="nominashc" />
@@ -12,19 +12,15 @@
           <EntitySet Name="ccf" EntityType="nominashcModel.Store.ccf" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="cuentas" EntityType="nominashcModel.Store.cuentas" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="departamentos" EntityType="nominashcModel.Store.departamentos" store:Type="Tables" Schema="nominashc" />
-          <EntitySet Name="empleadoempresa" EntityType="nominashcModel.Store.empleadoempresa" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="empleados" EntityType="nominashcModel.Store.empleados" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="empresas" EntityType="nominashcModel.Store.empresas" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="eps" EntityType="nominashcModel.Store.eps" store:Type="Tables" Schema="nominashc" />
-          <EntitySet Name="fotos" EntityType="nominashcModel.Store.fotos" store:Type="Tables" store:Schema="nominashc" store:Name="fotos">
-            <DefiningQuery>SELECT
-      `fotos`.`Empleados_idEmpleado`, 
-      `fotos`.`Foto`
-      FROM `fotos` AS `fotos`</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="fotos" EntityType="nominashcModel.Store.fotos" store:Type="Tables" Schema="nominashc" />
+          <EntitySet Name="novedades" EntityType="nominashcModel.Store.novedades" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="pension" EntityType="nominashcModel.Store.pension" store:Type="Tables" Schema="nominashc" />
+          <EntitySet Name="tiponovedad" EntityType="nominashcModel.Store.tiponovedad" store:Type="Tables" Schema="nominashc" />
           <EntitySet Name="vinculaciones" EntityType="nominashcModel.Store.vinculaciones" store:Type="Tables" Schema="nominashc" />
-          <AssociationSet Name="fk_Cargos_Departamentos" Association="nominashcModel.Store.fk_Cargos_Departamentos">
+          <AssociationSet Name="fk_Cargos_Departamentos1" Association="nominashcModel.Store.fk_Cargos_Departamentos1">
             <End Role="departamentos" EntitySet="departamentos" />
             <End Role="cargos" EntitySet="cargos" />
           </AssociationSet>
@@ -32,17 +28,21 @@
             <End Role="bancos" EntitySet="bancos" />
             <End Role="cuentas" EntitySet="cuentas" />
           </AssociationSet>
-          <AssociationSet Name="fk_EmpleadoEmpresa_Empleados1" Association="nominashcModel.Store.fk_EmpleadoEmpresa_Empleados1">
-            <End Role="empleados" EntitySet="empleados" />
-            <End Role="empleadoempresa" EntitySet="empleadoempresa" />
-          </AssociationSet>
-          <AssociationSet Name="fk_EmpleadoEmpresa_Empresas1" Association="nominashcModel.Store.fk_EmpleadoEmpresa_Empresas1">
+          <AssociationSet Name="fk_Departamentos_Empresas1" Association="nominashcModel.Store.fk_Departamentos_Empresas1">
             <End Role="empresas" EntitySet="empresas" />
-            <End Role="empleadoempresa" EntitySet="empleadoempresa" />
+            <End Role="departamentos" EntitySet="departamentos" />
           </AssociationSet>
           <AssociationSet Name="fk_Fotos_Empleados1" Association="nominashcModel.Store.fk_Fotos_Empleados1">
             <End Role="empleados" EntitySet="empleados" />
             <End Role="fotos" EntitySet="fotos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Novedades_TipoNovedad1" Association="nominashcModel.Store.fk_Novedades_TipoNovedad1">
+            <End Role="tiponovedad" EntitySet="tiponovedad" />
+            <End Role="novedades" EntitySet="novedades" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Novedades_Vinculaciones1" Association="nominashcModel.Store.fk_Novedades_Vinculaciones1">
+            <End Role="vinculaciones" EntitySet="vinculaciones" />
+            <End Role="novedades" EntitySet="novedades" />
           </AssociationSet>
           <AssociationSet Name="fk_Vinculaciones_ARL1" Association="nominashcModel.Store.fk_Vinculaciones_ARL1">
             <End Role="arl" EntitySet="arl" />
@@ -60,8 +60,8 @@
             <End Role="cuentas" EntitySet="cuentas" />
             <End Role="vinculaciones" EntitySet="vinculaciones" />
           </AssociationSet>
-          <AssociationSet Name="fk_Vinculaciones_EmpleadoEmpresa1" Association="nominashcModel.Store.fk_Vinculaciones_EmpleadoEmpresa1">
-            <End Role="empleadoempresa" EntitySet="empleadoempresa" />
+          <AssociationSet Name="fk_Vinculaciones_Empleados1" Association="nominashcModel.Store.fk_Vinculaciones_Empleados1">
+            <End Role="empleados" EntitySet="empleados" />
             <End Role="vinculaciones" EntitySet="vinculaciones" />
           </AssociationSet>
           <AssociationSet Name="fk_Vinculaciones_EPS1" Association="nominashcModel.Store.fk_Vinculaciones_EPS1">
@@ -75,61 +75,57 @@
         </EntityContainer>
         <EntityType Name="arl">
           <Key>
-            <PropertyRef Name="idARL" />
+            <PropertyRef Name="NitARL" />
           </Key>
-          <Property Name="idARL" Type="int" Nullable="false" />
+          <Property Name="NitARL" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="CodPila" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="bancos">
           <Key>
-            <PropertyRef Name="idBanco" />
+            <PropertyRef Name="NitBanco" />
           </Key>
-          <Property Name="idBanco" Type="int" Nullable="false" />
+          <Property Name="NitBanco" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="CodPila" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="cargos">
           <Key>
             <PropertyRef Name="idCargos" />
           </Key>
-          <Property Name="idCargos" Type="int" Nullable="false" />
+          <Property Name="idCargos" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
-          <Property Name="idDepartamento" Type="int" Nullable="false" />
+          <Property Name="idDepartamento" Type="varchar" Nullable="false" MaxLength="15" />
         </EntityType>
         <EntityType Name="ccf">
           <Key>
-            <PropertyRef Name="idCCF" />
+            <PropertyRef Name="NitCCF" />
           </Key>
-          <Property Name="idCCF" Type="int" Nullable="false" />
+          <Property Name="NitCCF" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="CodPila" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="cuentas">
           <Key>
             <PropertyRef Name="NoCuenta" />
           </Key>
-          <Property Name="NoCuenta" Type="int" Nullable="false" />
+          <Property Name="NoCuenta" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="TipoCuenta" Type="varchar" MaxLength="45" />
-          <Property Name="idBanco" Type="int" Nullable="false" />
+          <Property Name="NitBanco" Type="varchar" Nullable="false" MaxLength="15" />
         </EntityType>
         <EntityType Name="departamentos">
           <Key>
             <PropertyRef Name="idDepartamento" />
           </Key>
-          <Property Name="idDepartamento" Type="int" Nullable="false" />
+          <Property Name="idDepartamento" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
-        </EntityType>
-        <EntityType Name="empleadoempresa">
-          <Key>
-            <PropertyRef Name="idEmpleado" />
-            <PropertyRef Name="idEmpresa" />
-          </Key>
-          <Property Name="idEmpleado" Type="int" Nullable="false" />
-          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresa" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
         <EntityType Name="empleados">
           <Key>
             <PropertyRef Name="idEmpleado" />
           </Key>
-          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
           <Property Name="ApellidoP" Type="varchar" MaxLength="45" />
           <Property Name="ApellidoS" Type="varchar" MaxLength="45" />
@@ -147,31 +143,48 @@
           <Key>
             <PropertyRef Name="idEmpresa" />
           </Key>
-          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresa" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="eps">
           <Key>
-            <PropertyRef Name="idEPS" />
+            <PropertyRef Name="NitEPS" />
           </Key>
-          <Property Name="idEPS" Type="int" Nullable="false" />
+          <Property Name="NitEPS" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="CodPila" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'def.nominashc.fotos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
         <EntityType Name="fotos">
           <Key>
-            <PropertyRef Name="Empleados_idEmpleado" />
+            <PropertyRef Name="idEmpleado" />
           </Key>
-          <Property Name="Empleados_idEmpleado" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Foto" Type="blob" />
+        </EntityType>
+        <EntityType Name="novedades">
+          <Key>
+            <PropertyRef Name="idNovedad" />
+          </Key>
+          <Property Name="idNovedad" Type="int" Nullable="false" />
+          <Property Name="idVinculacion" Type="int" Nullable="false" />
+          <Property Name="idTipoNovedad" Type="int" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="FechaFinal" Type="date" />
+          <Property Name="PeriodoNovedad" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="pension">
           <Key>
-            <PropertyRef Name="idPension" />
+            <PropertyRef Name="NitPension" />
           </Key>
-          <Property Name="idPension" Type="int" Nullable="false" />
+          <Property Name="NitPension" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="CodPila" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tiponovedad">
+          <Key>
+            <PropertyRef Name="idTipoNovedad" />
+          </Key>
+          <Property Name="idTipoNovedad" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="vinculaciones">
@@ -179,21 +192,19 @@
             <PropertyRef Name="idVinculacion" />
           </Key>
           <Property Name="idVinculacion" Type="int" Nullable="false" />
-          <Property Name="idCargos" Type="int" Nullable="false" />
-          <Property Name="idARL" Type="int" Nullable="false" />
-          <Property Name="idEPS" Type="int" Nullable="false" />
-          <Property Name="idPension" Type="int" Nullable="false" />
-          <Property Name="idCCF" Type="int" Nullable="false" />
-          <Property Name="idEmpleado" Type="int" Nullable="false" />
-          <Property Name="idEmpresa" Type="int" Nullable="false" />
-          <Property Name="FechaInicio" Type="date" />
+          <Property Name="idEmpleado" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="FechaInicio" Type="date" Nullable="false" />
           <Property Name="FechaFinal" Type="date" />
           <Property Name="TipoContrato" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="PeriodoPago" Type="varchar" MaxLength="45" />
-          <Property Name="Salario" Type="bigint" />
-          <Property Name="NoCuenta" Type="int" Nullable="false" />
+          <Property Name="NitARL" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="NitCCF" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="NitEPS" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="NoCuenta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="NitPension" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="idCargos" Type="varchar" Nullable="false" MaxLength="15" />
         </EntityType>
-        <Association Name="fk_Cargos_Departamentos">
+        <Association Name="fk_Cargos_Departamentos1">
           <End Role="departamentos" Type="nominashcModel.Store.departamentos" Multiplicity="1" />
           <End Role="cargos" Type="nominashcModel.Store.cargos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -210,33 +221,21 @@
           <End Role="cuentas" Type="nominashcModel.Store.cuentas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="bancos">
-              <PropertyRef Name="idBanco" />
+              <PropertyRef Name="NitBanco" />
             </Principal>
             <Dependent Role="cuentas">
-              <PropertyRef Name="idBanco" />
+              <PropertyRef Name="NitBanco" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_EmpleadoEmpresa_Empleados1">
-          <End Role="empleados" Type="nominashcModel.Store.empleados" Multiplicity="1" />
-          <End Role="empleadoempresa" Type="nominashcModel.Store.empleadoempresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="empleados">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="empleadoempresa">
-              <PropertyRef Name="idEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_EmpleadoEmpresa_Empresas1">
+        <Association Name="fk_Departamentos_Empresas1">
           <End Role="empresas" Type="nominashcModel.Store.empresas" Multiplicity="1" />
-          <End Role="empleadoempresa" Type="nominashcModel.Store.empleadoempresa" Multiplicity="*" />
+          <End Role="departamentos" Type="nominashcModel.Store.departamentos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="empresas">
               <PropertyRef Name="idEmpresa" />
             </Principal>
-            <Dependent Role="empleadoempresa">
+            <Dependent Role="departamentos">
               <PropertyRef Name="idEmpresa" />
             </Dependent>
           </ReferentialConstraint>
@@ -249,7 +248,31 @@
               <PropertyRef Name="idEmpleado" />
             </Principal>
             <Dependent Role="fotos">
-              <PropertyRef Name="Empleados_idEmpleado" />
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Novedades_TipoNovedad1">
+          <End Role="tiponovedad" Type="nominashcModel.Store.tiponovedad" Multiplicity="1" />
+          <End Role="novedades" Type="nominashcModel.Store.novedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tiponovedad">
+              <PropertyRef Name="idTipoNovedad" />
+            </Principal>
+            <Dependent Role="novedades">
+              <PropertyRef Name="idTipoNovedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Novedades_Vinculaciones1">
+          <End Role="vinculaciones" Type="nominashcModel.Store.vinculaciones" Multiplicity="1" />
+          <End Role="novedades" Type="nominashcModel.Store.novedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vinculaciones">
+              <PropertyRef Name="idVinculacion" />
+            </Principal>
+            <Dependent Role="novedades">
+              <PropertyRef Name="idVinculacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -258,10 +281,10 @@
           <End Role="vinculaciones" Type="nominashcModel.Store.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="arl">
-              <PropertyRef Name="idARL" />
+              <PropertyRef Name="NitARL" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idARL" />
+              <PropertyRef Name="NitARL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -282,10 +305,10 @@
           <End Role="vinculaciones" Type="nominashcModel.Store.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ccf">
-              <PropertyRef Name="idCCF" />
+              <PropertyRef Name="NitCCF" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idCCF" />
+              <PropertyRef Name="NitCCF" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -301,17 +324,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Vinculaciones_EmpleadoEmpresa1">
-          <End Role="empleadoempresa" Type="nominashcModel.Store.empleadoempresa" Multiplicity="1" />
+        <Association Name="fk_Vinculaciones_Empleados1">
+          <End Role="empleados" Type="nominashcModel.Store.empleados" Multiplicity="1" />
           <End Role="vinculaciones" Type="nominashcModel.Store.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="empleadoempresa">
+            <Principal Role="empleados">
               <PropertyRef Name="idEmpleado" />
-              <PropertyRef Name="idEmpresa" />
             </Principal>
             <Dependent Role="vinculaciones">
               <PropertyRef Name="idEmpleado" />
-              <PropertyRef Name="idEmpresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -320,10 +341,10 @@
           <End Role="vinculaciones" Type="nominashcModel.Store.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="eps">
-              <PropertyRef Name="idEPS" />
+              <PropertyRef Name="NitEPS" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idEPS" />
+              <PropertyRef Name="NitEPS" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,30 +353,32 @@
           <End Role="vinculaciones" Type="nominashcModel.Store.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pension">
-              <PropertyRef Name="idPension" />
+              <PropertyRef Name="NitPension" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idPension" />
+              <PropertyRef Name="NitPension" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="nominashcModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="nominashcEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="cargos" EntityType="nominashcModel.cargos" />
-          <EntitySet Name="empleados" EntityType="nominashcModel.empleados" />
           <EntitySet Name="arl" EntityType="nominashcModel.arl" />
           <EntitySet Name="bancos" EntityType="nominashcModel.bancos" />
+          <EntitySet Name="cargos" EntityType="nominashcModel.cargos" />
           <EntitySet Name="ccf" EntityType="nominashcModel.ccf" />
           <EntitySet Name="cuentas" EntityType="nominashcModel.cuentas" />
           <EntitySet Name="departamentos" EntityType="nominashcModel.departamentos" />
-          <EntitySet Name="empleadoempresa" EntityType="nominashcModel.empleadoempresa" />
+          <EntitySet Name="empleados" EntityType="nominashcModel.empleados" />
           <EntitySet Name="empresas" EntityType="nominashcModel.empresas" />
           <EntitySet Name="eps" EntityType="nominashcModel.eps" />
           <EntitySet Name="fotos" EntityType="nominashcModel.fotos" />
+          <EntitySet Name="novedades" EntityType="nominashcModel.novedades" />
           <EntitySet Name="pension" EntityType="nominashcModel.pension" />
+          <EntitySet Name="tiponovedad" EntityType="nominashcModel.tiponovedad" />
           <EntitySet Name="vinculaciones" EntityType="nominashcModel.vinculaciones" />
           <AssociationSet Name="fk_Vinculaciones_ARL1" Association="nominashcModel.fk_Vinculaciones_ARL1">
             <End Role="arl" EntitySet="arl" />
@@ -365,7 +388,7 @@
             <End Role="bancos" EntitySet="bancos" />
             <End Role="cuentas" EntitySet="cuentas" />
           </AssociationSet>
-          <AssociationSet Name="fk_Cargos_Departamentos" Association="nominashcModel.fk_Cargos_Departamentos">
+          <AssociationSet Name="fk_Cargos_Departamentos1" Association="nominashcModel.fk_Cargos_Departamentos1">
             <End Role="departamentos" EntitySet="departamentos" />
             <End Role="cargos" EntitySet="cargos" />
           </AssociationSet>
@@ -381,92 +404,79 @@
             <End Role="cuentas" EntitySet="cuentas" />
             <End Role="vinculaciones" EntitySet="vinculaciones" />
           </AssociationSet>
-          <AssociationSet Name="fk_EmpleadoEmpresa_Empleados1" Association="nominashcModel.fk_EmpleadoEmpresa_Empleados1">
-            <End Role="empleados" EntitySet="empleados" />
-            <End Role="empleadoempresa" EntitySet="empleadoempresa" />
-          </AssociationSet>
-          <AssociationSet Name="fk_EmpleadoEmpresa_Empresas1" Association="nominashcModel.fk_EmpleadoEmpresa_Empresas1">
+          <AssociationSet Name="fk_Departamentos_Empresas1" Association="nominashcModel.fk_Departamentos_Empresas1">
             <End Role="empresas" EntitySet="empresas" />
-            <End Role="empleadoempresa" EntitySet="empleadoempresa" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Vinculaciones_EmpleadoEmpresa1" Association="nominashcModel.fk_Vinculaciones_EmpleadoEmpresa1">
-            <End Role="empleadoempresa" EntitySet="empleadoempresa" />
-            <End Role="vinculaciones" EntitySet="vinculaciones" />
+            <End Role="departamentos" EntitySet="departamentos" />
           </AssociationSet>
           <AssociationSet Name="fk_Fotos_Empleados1" Association="nominashcModel.fk_Fotos_Empleados1">
             <End Role="empleados" EntitySet="empleados" />
             <End Role="fotos" EntitySet="fotos" />
           </AssociationSet>
+          <AssociationSet Name="fk_Vinculaciones_Empleados1" Association="nominashcModel.fk_Vinculaciones_Empleados1">
+            <End Role="empleados" EntitySet="empleados" />
+            <End Role="vinculaciones" EntitySet="vinculaciones" />
+          </AssociationSet>
           <AssociationSet Name="fk_Vinculaciones_EPS1" Association="nominashcModel.fk_Vinculaciones_EPS1">
             <End Role="eps" EntitySet="eps" />
             <End Role="vinculaciones" EntitySet="vinculaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Novedades_TipoNovedad1" Association="nominashcModel.fk_Novedades_TipoNovedad1">
+            <End Role="tiponovedad" EntitySet="tiponovedad" />
+            <End Role="novedades" EntitySet="novedades" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Novedades_Vinculaciones1" Association="nominashcModel.fk_Novedades_Vinculaciones1">
+            <End Role="vinculaciones" EntitySet="vinculaciones" />
+            <End Role="novedades" EntitySet="novedades" />
           </AssociationSet>
           <AssociationSet Name="fk_Vinculaciones_Pension1" Association="nominashcModel.fk_Vinculaciones_Pension1">
             <End Role="pension" EntitySet="pension" />
             <End Role="vinculaciones" EntitySet="vinculaciones" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="cargos">
-          <Key>
-            <PropertyRef Name="idCargos" />
-          </Key>
-          <Property Name="idCargos" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Type="Int32" Name="idDepartamento" Nullable="false" />
-          <NavigationProperty Name="departamentos" Relationship="nominashcModel.fk_Cargos_Departamentos" FromRole="cargos" ToRole="departamentos" />
-          <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_Cargos1" FromRole="cargos" ToRole="vinculaciones" />
-        </EntityType>
-        <EntityType Name="empleados">
-          <Key>
-            <PropertyRef Name="idEmpleado" />
-          </Key>
-          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="ApellidoP" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="ApellidoS" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Sexo" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoCivil" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="FechaNacimiento" Type="DateTime" />
-          <Property Name="LugarNacimiento" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Direccion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Telefono" Type="Int64" />
-          <Property Name="Celular" Type="Int64" />
-          <Property Name="GrupoSanguineo" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
-          <Property Name="Profesion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="empleadoempresa" Relationship="nominashcModel.fk_EmpleadoEmpresa_Empleados1" FromRole="empleados" ToRole="empleadoempresa" />
-          <NavigationProperty Name="fotos" Relationship="nominashcModel.fk_Fotos_Empleados1" FromRole="empleados" ToRole="fotos" />
-        </EntityType>
         <EntityType Name="arl">
           <Key>
-            <PropertyRef Name="idARL" />
+            <PropertyRef Name="NitARL" />
           </Key>
-          <Property Type="Int32" Name="idARL" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NitARL" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="CodPila" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_ARL1" FromRole="arl" ToRole="vinculaciones" />
         </EntityType>
         <EntityType Name="bancos">
           <Key>
-            <PropertyRef Name="idBanco" />
+            <PropertyRef Name="NitBanco" />
           </Key>
-          <Property Type="Int32" Name="idBanco" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NitBanco" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="CodPila" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="cuentas" Relationship="nominashcModel.fk_Cuentas_Bancos1" FromRole="bancos" ToRole="cuentas" />
+        </EntityType>
+        <EntityType Name="cargos">
+          <Key>
+            <PropertyRef Name="idCargos" />
+          </Key>
+          <Property Name="idCargos" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="idDepartamento" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="departamentos" Relationship="nominashcModel.fk_Cargos_Departamentos1" FromRole="cargos" ToRole="departamentos" />
+          <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_Cargos1" FromRole="cargos" ToRole="vinculaciones" />
         </EntityType>
         <EntityType Name="ccf">
           <Key>
-            <PropertyRef Name="idCCF" />
+            <PropertyRef Name="NitCCF" />
           </Key>
-          <Property Type="Int32" Name="idCCF" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NitCCF" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="CodPila" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_CCF1" FromRole="ccf" ToRole="vinculaciones" />
         </EntityType>
         <EntityType Name="cuentas">
           <Key>
             <PropertyRef Name="NoCuenta" />
           </Key>
-          <Property Type="Int32" Name="NoCuenta" Nullable="false" />
-          <Property Type="String" Name="TipoCuenta" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="idBanco" Nullable="false" />
+          <Property Name="NoCuenta" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TipoCuenta" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="NitBanco" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="bancos" Relationship="nominashcModel.fk_Cuentas_Bancos1" FromRole="cuentas" ToRole="bancos" />
           <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_Cuentas1" FromRole="cuentas" ToRole="vinculaciones" />
         </EntityType>
@@ -474,106 +484,139 @@
           <Key>
             <PropertyRef Name="idDepartamento" />
           </Key>
-          <Property Type="Int32" Name="idDepartamento" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="cargos" Relationship="nominashcModel.fk_Cargos_Departamentos" FromRole="departamentos" ToRole="cargos" />
+          <Property Name="idDepartamento" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="idEmpresa" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="cargos" Relationship="nominashcModel.fk_Cargos_Departamentos1" FromRole="departamentos" ToRole="cargos" />
+          <NavigationProperty Name="empresas" Relationship="nominashcModel.fk_Departamentos_Empresas1" FromRole="departamentos" ToRole="empresas" />
         </EntityType>
-        <EntityType Name="empleadoempresa">
+        <EntityType Name="empleados">
           <Key>
             <PropertyRef Name="idEmpleado" />
-            <PropertyRef Name="idEmpresa" />
           </Key>
-          <Property Type="Int32" Name="idEmpleado" Nullable="false" />
-          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
-          <NavigationProperty Name="empleados" Relationship="nominashcModel.fk_EmpleadoEmpresa_Empleados1" FromRole="empleadoempresa" ToRole="empleados" />
-          <NavigationProperty Name="empresas" Relationship="nominashcModel.fk_EmpleadoEmpresa_Empresas1" FromRole="empleadoempresa" ToRole="empresas" />
-          <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_EmpleadoEmpresa1" FromRole="empleadoempresa" ToRole="vinculaciones" />
+          <Property Name="idEmpleado" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoP" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoS" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="EstadoCivil" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" />
+          <Property Name="LugarNacimiento" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="90" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono" Type="Int64" />
+          <Property Name="Celular" Type="Int64" />
+          <Property Name="GrupoSanguineo" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Profesion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="fotos" Relationship="nominashcModel.fk_Fotos_Empleados1" FromRole="empleados" ToRole="fotos" />
+          <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_Empleados1" FromRole="empleados" ToRole="vinculaciones" />
         </EntityType>
         <EntityType Name="empresas">
           <Key>
             <PropertyRef Name="idEmpresa" />
           </Key>
-          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="empleadoempresa" Relationship="nominashcModel.fk_EmpleadoEmpresa_Empresas1" FromRole="empresas" ToRole="empleadoempresa" />
+          <Property Name="idEmpresa" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="departamentos" Relationship="nominashcModel.fk_Departamentos_Empresas1" FromRole="empresas" ToRole="departamentos" />
         </EntityType>
         <EntityType Name="eps">
           <Key>
-            <PropertyRef Name="idEPS" />
+            <PropertyRef Name="NitEPS" />
           </Key>
-          <Property Type="Int32" Name="idEPS" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NitEPS" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="CodPila" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_EPS1" FromRole="eps" ToRole="vinculaciones" />
         </EntityType>
         <EntityType Name="fotos">
           <Key>
-            <PropertyRef Name="Empleados_idEmpleado" />
+            <PropertyRef Name="idEmpleado" />
           </Key>
-          <Property Type="Int32" Name="Empleados_idEmpleado" Nullable="false" />
-          <Property Type="Binary" Name="Foto" MaxLength="Max" FixedLength="false" />
+          <Property Name="idEmpleado" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="empleados" Relationship="nominashcModel.fk_Fotos_Empleados1" FromRole="fotos" ToRole="empleados" />
+        </EntityType>
+        <EntityType Name="novedades">
+          <Key>
+            <PropertyRef Name="idNovedad" />
+          </Key>
+          <Property Name="idNovedad" Type="Int32" Nullable="false" />
+          <Property Name="idVinculacion" Type="Int32" Nullable="false" />
+          <Property Name="idTipoNovedad" Type="Int32" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" />
+          <Property Name="FechaFinal" Type="DateTime" />
+          <Property Name="PeriodoNovedad" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tiponovedad" Relationship="nominashcModel.fk_Novedades_TipoNovedad1" FromRole="novedades" ToRole="tiponovedad" />
+          <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Novedades_Vinculaciones1" FromRole="novedades" ToRole="vinculaciones" />
         </EntityType>
         <EntityType Name="pension">
           <Key>
-            <PropertyRef Name="idPension" />
+            <PropertyRef Name="NitPension" />
           </Key>
-          <Property Type="Int32" Name="idPension" Nullable="false" />
-          <Property Type="String" Name="Nombre" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NitPension" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="CodPila" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="vinculaciones" Relationship="nominashcModel.fk_Vinculaciones_Pension1" FromRole="pension" ToRole="vinculaciones" />
+        </EntityType>
+        <EntityType Name="tiponovedad">
+          <Key>
+            <PropertyRef Name="idTipoNovedad" />
+          </Key>
+          <Property Name="idTipoNovedad" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="novedades" Relationship="nominashcModel.fk_Novedades_TipoNovedad1" FromRole="tiponovedad" ToRole="novedades" />
         </EntityType>
         <EntityType Name="vinculaciones">
           <Key>
             <PropertyRef Name="idVinculacion" />
           </Key>
-          <Property Type="Int32" Name="idVinculacion" Nullable="false" />
-          <Property Type="Int32" Name="idCargos" Nullable="false" />
-          <Property Type="Int32" Name="idARL" Nullable="false" />
-          <Property Type="Int32" Name="idEPS" Nullable="false" />
-          <Property Type="Int32" Name="idPension" Nullable="false" />
-          <Property Type="Int32" Name="idCCF" Nullable="false" />
-          <Property Type="Int32" Name="idEmpleado" Nullable="false" />
-          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
-          <Property Type="DateTime" Name="FechaInicio" />
-          <Property Type="DateTime" Name="FechaFinal" />
-          <Property Type="String" Name="TipoContrato" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="PeriodoPago" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="Int64" Name="Salario" />
-          <Property Type="Int32" Name="NoCuenta" Nullable="false" />
+          <Property Name="idVinculacion" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" />
+          <Property Name="FechaFinal" Type="DateTime" />
+          <Property Name="TipoContrato" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="PeriodoPago" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="NitARL" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="NitCCF" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="NitEPS" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="NoCuenta" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NitPension" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="idCargos" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="arl" Relationship="nominashcModel.fk_Vinculaciones_ARL1" FromRole="vinculaciones" ToRole="arl" />
           <NavigationProperty Name="cargos" Relationship="nominashcModel.fk_Vinculaciones_Cargos1" FromRole="vinculaciones" ToRole="cargos" />
           <NavigationProperty Name="ccf" Relationship="nominashcModel.fk_Vinculaciones_CCF1" FromRole="vinculaciones" ToRole="ccf" />
           <NavigationProperty Name="cuentas" Relationship="nominashcModel.fk_Vinculaciones_Cuentas1" FromRole="vinculaciones" ToRole="cuentas" />
-          <NavigationProperty Name="empleadoempresa" Relationship="nominashcModel.fk_Vinculaciones_EmpleadoEmpresa1" FromRole="vinculaciones" ToRole="empleadoempresa" />
+          <NavigationProperty Name="empleados" Relationship="nominashcModel.fk_Vinculaciones_Empleados1" FromRole="vinculaciones" ToRole="empleados" />
           <NavigationProperty Name="eps" Relationship="nominashcModel.fk_Vinculaciones_EPS1" FromRole="vinculaciones" ToRole="eps" />
+          <NavigationProperty Name="novedades" Relationship="nominashcModel.fk_Novedades_Vinculaciones1" FromRole="vinculaciones" ToRole="novedades" />
           <NavigationProperty Name="pension" Relationship="nominashcModel.fk_Vinculaciones_Pension1" FromRole="vinculaciones" ToRole="pension" />
         </EntityType>
         <Association Name="fk_Vinculaciones_ARL1">
-          <End Type="nominashcModel.arl" Role="arl" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
+          <End Role="arl" Type="nominashcModel.arl" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="arl">
-              <PropertyRef Name="idARL" />
+              <PropertyRef Name="NitARL" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idARL" />
+              <PropertyRef Name="NitARL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Cuentas_Bancos1">
-          <End Type="nominashcModel.bancos" Role="bancos" Multiplicity="1" />
-          <End Type="nominashcModel.cuentas" Role="cuentas" Multiplicity="*" />
+          <End Role="bancos" Type="nominashcModel.bancos" Multiplicity="1" />
+          <End Role="cuentas" Type="nominashcModel.cuentas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="bancos">
-              <PropertyRef Name="idBanco" />
+              <PropertyRef Name="NitBanco" />
             </Principal>
             <Dependent Role="cuentas">
-              <PropertyRef Name="idBanco" />
+              <PropertyRef Name="NitBanco" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Cargos_Departamentos">
-          <End Type="nominashcModel.departamentos" Role="departamentos" Multiplicity="1" />
-          <End Type="nominashcModel.cargos" Role="cargos" Multiplicity="*" />
+        <Association Name="fk_Cargos_Departamentos1">
+          <End Role="departamentos" Type="nominashcModel.departamentos" Multiplicity="1" />
+          <End Role="cargos" Type="nominashcModel.cargos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="departamentos">
               <PropertyRef Name="idDepartamento" />
@@ -584,8 +627,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vinculaciones_Cargos1">
-          <End Type="nominashcModel.cargos" Role="cargos" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
+          <End Role="cargos" Type="nominashcModel.cargos" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cargos">
               <PropertyRef Name="idCargos" />
@@ -596,20 +639,20 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vinculaciones_CCF1">
-          <End Type="nominashcModel.ccf" Role="ccf" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
+          <End Role="ccf" Type="nominashcModel.ccf" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ccf">
-              <PropertyRef Name="idCCF" />
+              <PropertyRef Name="NitCCF" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idCCF" />
+              <PropertyRef Name="NitCCF" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vinculaciones_Cuentas1">
-          <End Type="nominashcModel.cuentas" Role="cuentas" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
+          <End Role="cuentas" Type="nominashcModel.cuentas" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cuentas">
               <PropertyRef Name="NoCuenta" />
@@ -619,77 +662,87 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_EmpleadoEmpresa_Empleados1">
-          <End Type="nominashcModel.empleados" Role="empleados" Multiplicity="1" />
-          <End Type="nominashcModel.empleadoempresa" Role="empleadoempresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="empleados">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="empleadoempresa">
-              <PropertyRef Name="idEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_EmpleadoEmpresa_Empresas1">
-          <End Type="nominashcModel.empresas" Role="empresas" Multiplicity="1" />
-          <End Type="nominashcModel.empleadoempresa" Role="empleadoempresa" Multiplicity="*" />
+        <Association Name="fk_Departamentos_Empresas1">
+          <End Role="empresas" Type="nominashcModel.empresas" Multiplicity="1" />
+          <End Role="departamentos" Type="nominashcModel.departamentos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="empresas">
               <PropertyRef Name="idEmpresa" />
             </Principal>
-            <Dependent Role="empleadoempresa">
-              <PropertyRef Name="idEmpresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Vinculaciones_EmpleadoEmpresa1">
-          <End Type="nominashcModel.empleadoempresa" Role="empleadoempresa" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="empleadoempresa">
-              <PropertyRef Name="idEmpleado" />
-              <PropertyRef Name="idEmpresa" />
-            </Principal>
-            <Dependent Role="vinculaciones">
-              <PropertyRef Name="idEmpleado" />
+            <Dependent Role="departamentos">
               <PropertyRef Name="idEmpresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Fotos_Empleados1">
-          <End Type="nominashcModel.empleados" Role="empleados" Multiplicity="1" />
-          <End Type="nominashcModel.fotos" Role="fotos" Multiplicity="0..1" />
+          <End Role="empleados" Type="nominashcModel.empleados" Multiplicity="1" />
+          <End Role="fotos" Type="nominashcModel.fotos" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="empleados">
               <PropertyRef Name="idEmpleado" />
             </Principal>
             <Dependent Role="fotos">
-              <PropertyRef Name="Empleados_idEmpleado" />
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Vinculaciones_Empleados1">
+          <End Role="empleados" Type="nominashcModel.empleados" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleados">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="vinculaciones">
+              <PropertyRef Name="idEmpleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vinculaciones_EPS1">
-          <End Type="nominashcModel.eps" Role="eps" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
+          <End Role="eps" Type="nominashcModel.eps" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="eps">
-              <PropertyRef Name="idEPS" />
+              <PropertyRef Name="NitEPS" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idEPS" />
+              <PropertyRef Name="NitEPS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Novedades_TipoNovedad1">
+          <End Role="tiponovedad" Type="nominashcModel.tiponovedad" Multiplicity="1" />
+          <End Role="novedades" Type="nominashcModel.novedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tiponovedad">
+              <PropertyRef Name="idTipoNovedad" />
+            </Principal>
+            <Dependent Role="novedades">
+              <PropertyRef Name="idTipoNovedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Novedades_Vinculaciones1">
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="1" />
+          <End Role="novedades" Type="nominashcModel.novedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vinculaciones">
+              <PropertyRef Name="idVinculacion" />
+            </Principal>
+            <Dependent Role="novedades">
+              <PropertyRef Name="idVinculacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vinculaciones_Pension1">
-          <End Type="nominashcModel.pension" Role="pension" Multiplicity="1" />
-          <End Type="nominashcModel.vinculaciones" Role="vinculaciones" Multiplicity="*" />
+          <End Role="pension" Type="nominashcModel.pension" Multiplicity="1" />
+          <End Role="vinculaciones" Type="nominashcModel.vinculaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pension">
-              <PropertyRef Name="idPension" />
+              <PropertyRef Name="NitPension" />
             </Principal>
             <Dependent Role="vinculaciones">
-              <PropertyRef Name="idPension" />
+              <PropertyRef Name="NitPension" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -699,12 +752,57 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="nominashcModelStoreContainer" CdmEntityContainer="nominashcEntities">
+          <EntitySetMapping Name="arl">
+            <EntityTypeMapping TypeName="nominashcModel.arl">
+              <MappingFragment StoreEntitySet="arl">
+                <ScalarProperty Name="NitARL" ColumnName="NitARL" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodPila" ColumnName="CodPila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bancos">
+            <EntityTypeMapping TypeName="nominashcModel.bancos">
+              <MappingFragment StoreEntitySet="bancos">
+                <ScalarProperty Name="NitBanco" ColumnName="NitBanco" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodPila" ColumnName="CodPila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="cargos">
             <EntityTypeMapping TypeName="nominashcModel.cargos">
               <MappingFragment StoreEntitySet="cargos">
-                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
                 <ScalarProperty Name="idCargos" ColumnName="idCargos" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ccf">
+            <EntityTypeMapping TypeName="nominashcModel.ccf">
+              <MappingFragment StoreEntitySet="ccf">
+                <ScalarProperty Name="NitCCF" ColumnName="NitCCF" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodPila" ColumnName="CodPila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cuentas">
+            <EntityTypeMapping TypeName="nominashcModel.cuentas">
+              <MappingFragment StoreEntitySet="cuentas">
+                <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
+                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
+                <ScalarProperty Name="NitBanco" ColumnName="NitBanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentos">
+            <EntityTypeMapping TypeName="nominashcModel.departamentos">
+              <MappingFragment StoreEntitySet="departamentos">
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -727,104 +825,75 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="arl">
-            <EntityTypeMapping TypeName="nominashcModel.arl">
-              <MappingFragment StoreEntitySet="arl">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="idARL" ColumnName="idARL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="bancos">
-            <EntityTypeMapping TypeName="nominashcModel.bancos">
-              <MappingFragment StoreEntitySet="bancos">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="idBanco" ColumnName="idBanco" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ccf">
-            <EntityTypeMapping TypeName="nominashcModel.ccf">
-              <MappingFragment StoreEntitySet="ccf">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="idCCF" ColumnName="idCCF" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cuentas">
-            <EntityTypeMapping TypeName="nominashcModel.cuentas">
-              <MappingFragment StoreEntitySet="cuentas">
-                <ScalarProperty Name="idBanco" ColumnName="idBanco" />
-                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
-                <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="departamentos">
-            <EntityTypeMapping TypeName="nominashcModel.departamentos">
-              <MappingFragment StoreEntitySet="departamentos">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="empleadoempresa">
-            <EntityTypeMapping TypeName="nominashcModel.empleadoempresa">
-              <MappingFragment StoreEntitySet="empleadoempresa">
-                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="empresas">
             <EntityTypeMapping TypeName="nominashcModel.empresas">
               <MappingFragment StoreEntitySet="empresas">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="eps">
             <EntityTypeMapping TypeName="nominashcModel.eps">
               <MappingFragment StoreEntitySet="eps">
+                <ScalarProperty Name="NitEPS" ColumnName="NitEPS" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="idEPS" ColumnName="idEPS" />
+                <ScalarProperty Name="CodPila" ColumnName="CodPila" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="fotos">
             <EntityTypeMapping TypeName="nominashcModel.fotos">
               <MappingFragment StoreEntitySet="fotos">
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
-                <ScalarProperty Name="Empleados_idEmpleado" ColumnName="Empleados_idEmpleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="novedades">
+            <EntityTypeMapping TypeName="nominashcModel.novedades">
+              <MappingFragment StoreEntitySet="novedades">
+                <ScalarProperty Name="idNovedad" ColumnName="idNovedad" />
+                <ScalarProperty Name="idVinculacion" ColumnName="idVinculacion" />
+                <ScalarProperty Name="idTipoNovedad" ColumnName="idTipoNovedad" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+                <ScalarProperty Name="PeriodoNovedad" ColumnName="PeriodoNovedad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pension">
             <EntityTypeMapping TypeName="nominashcModel.pension">
               <MappingFragment StoreEntitySet="pension">
+                <ScalarProperty Name="NitPension" ColumnName="NitPension" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="idPension" ColumnName="idPension" />
+                <ScalarProperty Name="CodPila" ColumnName="CodPila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tiponovedad">
+            <EntityTypeMapping TypeName="nominashcModel.tiponovedad">
+              <MappingFragment StoreEntitySet="tiponovedad">
+                <ScalarProperty Name="idTipoNovedad" ColumnName="idTipoNovedad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vinculaciones">
             <EntityTypeMapping TypeName="nominashcModel.vinculaciones">
               <MappingFragment StoreEntitySet="vinculaciones">
-                <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
-                <ScalarProperty Name="Salario" ColumnName="Salario" />
-                <ScalarProperty Name="PeriodoPago" ColumnName="PeriodoPago" />
-                <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
-                <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-                <ScalarProperty Name="idCCF" ColumnName="idCCF" />
-                <ScalarProperty Name="idPension" ColumnName="idPension" />
-                <ScalarProperty Name="idEPS" ColumnName="idEPS" />
-                <ScalarProperty Name="idARL" ColumnName="idARL" />
-                <ScalarProperty Name="idCargos" ColumnName="idCargos" />
                 <ScalarProperty Name="idVinculacion" ColumnName="idVinculacion" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+                <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
+                <ScalarProperty Name="PeriodoPago" ColumnName="PeriodoPago" />
+                <ScalarProperty Name="NitARL" ColumnName="NitARL" />
+                <ScalarProperty Name="NitCCF" ColumnName="NitCCF" />
+                <ScalarProperty Name="NitEPS" ColumnName="NitEPS" />
+                <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
+                <ScalarProperty Name="NitPension" ColumnName="NitPension" />
+                <ScalarProperty Name="idCargos" ColumnName="idCargos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

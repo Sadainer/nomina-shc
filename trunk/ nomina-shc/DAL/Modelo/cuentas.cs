@@ -19,9 +19,9 @@ namespace DAL.Modelo
             this.vinculaciones = new HashSet<vinculaciones>();
         }
     
-        public int NoCuenta { get; set; }
+        public string NoCuenta { get; set; }
         public string TipoCuenta { get; set; }
-        public int idBanco { get; set; }
+        public string NitBanco { get; set; }
     
         public virtual bancos bancos { get; set; }
         public virtual ICollection<vinculaciones> vinculaciones { get; set; }

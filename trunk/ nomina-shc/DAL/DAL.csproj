@@ -64,9 +64,6 @@
     <Compile Include="Modelo\departamentos.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\empleadoempresa.cs">
-      <DependentUpon>SHC.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\empleados.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
@@ -77,6 +74,9 @@
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\fotos.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\novedades.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\pension.cs">
@@ -96,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SHC.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\tiponovedad.cs">
+      <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\vinculaciones.cs">
       <DependentUpon>SHC.tt</DependentUpon>

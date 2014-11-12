@@ -14,7 +14,7 @@ namespace DAL.Modelo
     
     public partial class fotos
     {
-        public int Empleados_idEmpleado { get; set; }
+        public string idEmpleado { get; set; }
         public byte[] Foto { get; set; }
     
         public virtual empleados empleados { get; set; }

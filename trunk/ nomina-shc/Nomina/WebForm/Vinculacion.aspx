@@ -15,14 +15,7 @@
     <link href="../Content/plugins/morris.css" rel="stylesheet"/>
     <link href="../Content/main.css" rel="stylesheet" />
 
-    <script src="../Scripts/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../datepicker/js/moment.js"></script>
-    <script src="../datepicker/js/bootstrap-datetimepicker.js"></script>
-    <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
-    <script src="../Scripts/sb-admin-2.js"></script>
-    <script src="../Scripts/typeahead.js"></script>
-    <script src="../Scripts/Contratacion.js"></script>
+    
 
 
 </head>
@@ -383,7 +376,7 @@
                                         <div class="form-group" id="GrCedula">
                                             <div class="row">
                                                 <div class="col-lg-8">
-                                                    <label class="control-label">Cédula</label>
+                                                    <label class="control-label">Cédula</label> <asp:Label ID="lblCedula" runat="server"></asp:Label>
                                                     <input id="txtCedula" class="form-control typeahead" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                                                 </div>
                                                 <br />
@@ -408,6 +401,27 @@
                                             <label>Segundo apellido</label>
                                             <input id="txtApellidoS" class="form-control" disabled="disabled"/>
                                         </div>
+                                        <div class="form-group">
+                                               
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                            <label>Tipo de contrato</label>
+                                                <select class="form-control">
+                                                <option>Termino Fijo</option>
+                                                <option>Termino Indefinido</option>
+                                                <option>Obra o labor determinada</option>
+                                                <option>Ocasional o transitorio</option>
+                                                </select> 
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>Tipo de jornada</label>
+                                                <select class="form-control">
+                                                <option>Diurna</option>
+                                                <option>Nocturna</option>
+                                            </select> 
+                                            </div>
+                                        </div>
+                                    </div>
                                         <div class="form-group"/>
                                                 <div class="row">
                                                     <div class="col-lg-6">
@@ -425,44 +439,39 @@
                                                         <div class="col-lg-6">
                                                             <label>Fecha de Terminación</label>
                                                             <div class='input-group date fecha' id='Div1'>
-                                                                <input type='text' class="form-control" />
+                                                                <input type='text' class="form-control" id="FechaTerminacion" />
                                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4">
-                                                            <label>Duración:</label>
+                                                            <asp:Label ID="LblDuraccion" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
                                             </div>
-                                        <div class="form-group">
-                                            <label>Departamento</label>
-                                            <select class="form-control" id="Select1">
-                                             <option>1</option>
-                                            </select> 
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Cargo</label>
-                                            <select class="form-control" id="Select2">
-                                             <option>1</option>
-                                            </select> 
-                                        </div>
+                                         
                                     
                                     <%--</form>--%>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Tipo de contrato</label>
-                                            <select class="form-control">
-                                            <option>Termino Fijo</option>
-                                            <option>Termino Indefinido</option>
-                                            <option>Obra o labor determinada</option>
-                                            <option>Ocasional o transitorio</option>
-                                        </select> 
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                            <label>Departamento</label>
+                                                <select class="form-control" id="Select3">
+                                                 <option>1</option>
+                                                </select> 
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>Cargo</label>
+                                                <select class="form-control" id="Select4">
+                                                 <option>1</option>
+                                                </select> 
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                               
                                         <div class="row">
                                             <div class="col-lg-6">
                                             <label>Salario</label>
@@ -477,6 +486,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                   
                                     <div class="form-group">
                                        
                                         <div class="row">
@@ -500,34 +510,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Tipo de jornada</label>
-                                            <select class="form-control">
-                                            <option>Diurna</option>
-                                            <option>Nocturna</option>
-                                        </select> 
-                                    </div>
-                                    
+                                   
                                     <div class="form-group">
                                         <label>Empresa Prestadora de Salud</label>
-                                            <select class="form-control">
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
-                                        </select> 
+                                        <asp:DropDownList ID="DropDownEPS" runat="server" CssClass="form-control" DataSourceID="EntityDataSourceEPS" DataValueField="NitEPS" DataTextField="Nombre"></asp:DropDownList>
+                                         
                                     </div>
                                     <div class="form-group">
                                         <label>Fondo de Pensión</label>
-                                            <select class="form-control">
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
-                                        </select> 
+                                        <asp:DropDownList ID="DropDownPension" runat="server" CssClass="form-control" DataSourceID="EntityDataSourcePension" DataValueField="NitPension" DataTextField="Nombre"></asp:DropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label>ARL</label>
-                                            <select class="form-control">
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
-                                        </select> 
+                                        <asp:DropDownList ID="DropDownARL" runat="server" CssClass="form-control" DataSourceID="EntityDataSourceARL" DataValueField="NitARL" DataTextField="Nombre"></asp:DropDownList> 
                                     </div>
                                     <div class="form-group">
                                         <label>Caja de Compensación</label>
@@ -561,7 +556,18 @@
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
-                    
-        </form>         
+        <asp:EntityDataSource ID="EntityDataSourceEPS" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="eps"></asp:EntityDataSource>
+        <asp:EntityDataSource ID="EntityDataSourcePension" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="pension"></asp:EntityDataSource>
+        <asp:EntityDataSource ID="EntityDataSourceARL" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="arl"></asp:EntityDataSource>
+            
+    </form>         
 </body>
 </html>
+    <script src="../Scripts/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../datepicker/js/moment.js"></script>
+    <script src="../datepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
+    <script src="../Scripts/sb-admin-2.js"></script>
+    <script src="../Scripts/typeahead.js"></script>
+    <script src="../Scripts/Contratacion.js"></script>

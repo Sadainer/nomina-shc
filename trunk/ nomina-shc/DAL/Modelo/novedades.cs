@@ -12,17 +12,16 @@ namespace DAL.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class bancos
+    public partial class novedades
     {
-        public bancos()
-        {
-            this.cuentas = new HashSet<cuentas>();
-        }
+        public int idNovedad { get; set; }
+        public int idVinculacion { get; set; }
+        public int idTipoNovedad { get; set; }
+        public Nullable<System.DateTime> FechaInicio { get; set; }
+        public Nullable<System.DateTime> FechaFinal { get; set; }
+        public string PeriodoNovedad { get; set; }
     
-        public string NitBanco { get; set; }
-        public string Nombre { get; set; }
-        public string CodPila { get; set; }
-    
-        public virtual ICollection<cuentas> cuentas { get; set; }
+        public virtual tiponovedad tiponovedad { get; set; }
+        public virtual vinculaciones vinculaciones { get; set; }
     }
 }

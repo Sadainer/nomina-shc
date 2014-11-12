@@ -14,27 +14,31 @@ namespace DAL.Modelo
     
     public partial class vinculaciones
     {
+        public vinculaciones()
+        {
+            this.novedades = new HashSet<novedades>();
+        }
+    
         public int idVinculacion { get; set; }
-        public int idCargos { get; set; }
-        public int idARL { get; set; }
-        public int idEPS { get; set; }
-        public int idPension { get; set; }
-        public int idCCF { get; set; }
-        public int idEmpleado { get; set; }
-        public int idEmpresa { get; set; }
-        public Nullable<System.DateTime> FechaInicio { get; set; }
+        public string idEmpleado { get; set; }
+        public System.DateTime FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFinal { get; set; }
         public string TipoContrato { get; set; }
         public string PeriodoPago { get; set; }
-        public Nullable<long> Salario { get; set; }
-        public int NoCuenta { get; set; }
+        public string NitARL { get; set; }
+        public string NitCCF { get; set; }
+        public string NitEPS { get; set; }
+        public string NoCuenta { get; set; }
+        public string NitPension { get; set; }
+        public string idCargos { get; set; }
     
         public virtual arl arl { get; set; }
         public virtual cargos cargos { get; set; }
         public virtual ccf ccf { get; set; }
         public virtual cuentas cuentas { get; set; }
-        public virtual empleadoempresa empleadoempresa { get; set; }
+        public virtual empleados empleados { get; set; }
         public virtual eps eps { get; set; }
+        public virtual ICollection<novedades> novedades { get; set; }
         public virtual pension pension { get; set; }
     }
 }

@@ -16,12 +16,12 @@ namespace DAL.Modelo
     {
         public empresas()
         {
-            this.empleadoempresa = new HashSet<empleadoempresa>();
+            this.departamentos = new HashSet<departamentos>();
         }
     
-        public int idEmpresa { get; set; }
+        public string idEmpresa { get; set; }
         public string Nombre { get; set; }
     
-        public virtual ICollection<empleadoempresa> empleadoempresa { get; set; }
+        public virtual ICollection<departamentos> departamentos { get; set; }
     }
 }

@@ -44,7 +44,7 @@
         Emp.ApellidoS = $("#txtApellidoS").val();
         Emp.Sexo = $("#txtSexo").val();
         Emp.EstadoCivil = $("#txtEstadoCivil").val();
-        Emp.FechaNacimiento = Date.parse($("#txtFechaNac").val());
+        Emp.FechaNacimiento = moment($("#txtFechaNac").val(), "DD-MM-YYYY");
         Emp.LugarNacimiento = $("#txtLugNac").val();
         Emp.Direccion = $("#txtDireccion").val();
         Emp.Telefono = $("#txtTelefono").val();
