@@ -12,18 +12,16 @@ namespace DAL.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class empleadoempresa
+    public partial class tiponovedad
     {
-        public empleadoempresa()
+        public tiponovedad()
         {
-            this.vinculaciones = new HashSet<vinculaciones>();
+            this.novedades = new HashSet<novedades>();
         }
     
-        public int idEmpleado { get; set; }
-        public int idEmpresa { get; set; }
+        public int idTipoNovedad { get; set; }
+        public string Nombre { get; set; }
     
-        public virtual empleados empleados { get; set; }
-        public virtual empresas empresas { get; set; }
-        public virtual ICollection<vinculaciones> vinculaciones { get; set; }
+        public virtual ICollection<novedades> novedades { get; set; }
     }
 }

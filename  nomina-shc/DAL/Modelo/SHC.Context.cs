@@ -25,18 +25,19 @@ namespace DAL.Modelo
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<cargos> cargos { get; set; }
-        public DbSet<empleados> empleados { get; set; }
         public DbSet<arl> arl { get; set; }
         public DbSet<bancos> bancos { get; set; }
+        public DbSet<cargos> cargos { get; set; }
         public DbSet<ccf> ccf { get; set; }
         public DbSet<cuentas> cuentas { get; set; }
         public DbSet<departamentos> departamentos { get; set; }
-        public DbSet<empleadoempresa> empleadoempresa { get; set; }
+        public DbSet<empleados> empleados { get; set; }
         public DbSet<empresas> empresas { get; set; }
         public DbSet<eps> eps { get; set; }
         public DbSet<fotos> fotos { get; set; }
+        public DbSet<novedades> novedades { get; set; }
         public DbSet<pension> pension { get; set; }
+        public DbSet<tiponovedad> tiponovedad { get; set; }
         public DbSet<vinculaciones> vinculaciones { get; set; }
     }
 }

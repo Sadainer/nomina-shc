@@ -14,16 +14,6 @@
     <link href="../Content/sb-admin-2.css" rel="stylesheet"/>
     <link href="../Content/plugins/morris.css" rel="stylesheet"/>
 
-    <script src="../Scripts/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../datepicker/js/moment.js"></script>
-    <script src="../datepicker/js/bootstrap-datetimepicker.js"></script>
-    <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
-    <script src="../Scripts/sb-admin-2.js"></script>
-    <script src="../Scripts/Principal.js"></script>
-    <script src="../Scripts/date.js"></script>
-
-
 </head>
 <body>
      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -521,5 +511,12 @@
                     </div>
                 
     </form>
+    <script src="../Scripts/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../datepicker/js/moment.js"></script>
+    <script src="../datepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
+    <script src="../Scripts/sb-admin-2.js"></script>
+    <script src="../Scripts/Principal.js"></script>
 </body>
 </html>

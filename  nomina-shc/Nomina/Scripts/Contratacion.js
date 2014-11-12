@@ -33,8 +33,11 @@
             cb(matches);
         };
     };
+    $('.fecha').datetimepicker({
+        language: "es",
+        pickTime: false,
+    });
     
-
     $('#txtCedula').typeahead({
         hint: true,
         highlight: true,
@@ -57,6 +60,9 @@
             success: function (Inv) {
                 $("#GrCedula").removeClass("has-warning").addClass("has-success")
                 $("#txtNombre").val(Inv.Nombre);
+                $("#lblCedula").text(". Empleado registrado");
+                $("#lblCedula").css({ color: 'green' });
+                
                 $("#txtApellidoP").val(Inv.ApellidoP);
                 $("#txtApellidoS").val(Inv.ApellidoS);
             },
@@ -65,6 +71,8 @@
                 $("#txtNombre").val("");
                 $("#txtApellidoP").val("");
                 $("#txtApellidoS").val("");
+                $("#lblCedula").text(". Empleado no registrado");
+                $("#lblCedula").css({ color: 'red' });
                 
             }
         });
@@ -102,5 +110,12 @@
                 alert(JSON.stringify(result));
             },
         });
+    });
+    $("#BtnCancelar").click(function () {
+        Emp = {};
+        Emp.idEmpleado = $("#DropDownPension").val();
+        Emp.Nombre = $("#DropDownEPS").val();
+        alert(JSON.stringify(Emp));
+        
     });
 });

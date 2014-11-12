@@ -16,10 +16,10 @@ namespace DAL.Modelo
     {
         public empleados()
         {
-            this.empleadoempresa = new HashSet<empleadoempresa>();
+            this.vinculaciones = new HashSet<vinculaciones>();
         }
     
-        public int idEmpleado { get; set; }
+        public string idEmpleado { get; set; }
         public string Nombre { get; set; }
         public string ApellidoP { get; set; }
         public string ApellidoS { get; set; }
@@ -33,7 +33,7 @@ namespace DAL.Modelo
         public string GrupoSanguineo { get; set; }
         public string Profesion { get; set; }
     
-        public virtual ICollection<empleadoempresa> empleadoempresa { get; set; }
         public virtual fotos fotos { get; set; }
+        public virtual ICollection<vinculaciones> vinculaciones { get; set; }
     }
 }

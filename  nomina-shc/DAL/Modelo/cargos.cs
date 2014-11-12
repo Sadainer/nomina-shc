@@ -19,9 +19,9 @@ namespace DAL.Modelo
             this.vinculaciones = new HashSet<vinculaciones>();
         }
     
-        public int idCargos { get; set; }
+        public string idCargos { get; set; }
         public string Nombre { get; set; }
-        public int idDepartamento { get; set; }
+        public string idDepartamento { get; set; }
     
         public virtual departamentos departamentos { get; set; }
         public virtual ICollection<vinculaciones> vinculaciones { get; set; }
