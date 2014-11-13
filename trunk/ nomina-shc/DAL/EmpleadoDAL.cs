@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL.Modelo;
-//using AutoMapper;
 
 namespace DAL
 {
-    public class NominaDAL 
+    public class EmpleadoDAL 
     {
         nominashcEntities db = new nominashcEntities();
 

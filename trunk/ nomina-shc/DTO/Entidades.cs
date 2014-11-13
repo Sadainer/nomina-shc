@@ -26,4 +26,10 @@ namespace DTO
             public string GrupoSanguineo { get; set; }
             public string Profesion { get; set; }
         }
+        public class DepartamentosDTO
+        {
+            public string idDepartamento { get; set; }
+            public string Nombre { get; set; }
+            public string idEmpresa { get; set; }
+        }
 }

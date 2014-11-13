@@ -2,6 +2,21 @@
     var states = [];
     var Invitado;
     $.ajax({
+        type: "GET",
+        url: "http://localhost/NominaAPI/api/dpto/12345",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (result) {
+            alert(JSON.stringify(result));
+            $("#DropDownDpto1").byaCombo({ DataSource: result, Value: "idDepartamento", Display: "Nombre", placeHolder: "Selecciones Dpto" });
+        },
+        error: function (result) {
+            alert("Error" + (JSON.stringify(result)));
+        }
+    });
+
+    $.ajax({
             type: "GET",
             url: "http://localhost/NominaAPI/api/empleado",
             contentType: "application/json; charset=utf-8",
@@ -118,4 +133,5 @@
         alert(JSON.stringify(Emp));
         
     });
+    
 });

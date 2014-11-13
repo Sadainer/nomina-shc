@@ -460,7 +460,12 @@
                                             <div class="col-lg-6">
                                             <label>Departamento</label>
                                                 <select class="form-control" id="Select3">
-                                                 <option>1</option>
+                                                    <asp:DropDownList ID="DropDownDpto" runat="server" CssClass="form-control"></asp:DropDownList>
+                                                    <select id="DropDownDpto1" class ="form-control">
+                                                        <option></option>
+
+                                                    </select>
+                                                    
                                                 </select> 
                                             </div>
                                             <div class="col-lg-6">
@@ -490,14 +495,11 @@
                                     <div class="form-group">
                                        
                                         <div class="row">
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-5">
                                             <label>Banco</label>
-                                            <select class="form-control">
-                                                <option>Bancolombia</option>
-                                                <option>Banco de Bogotá</option>
-                                            </select> 
+                                                <asp:DropDownList ID="DropDownBanco" runat="server" CssClass="form-control" DataSourceID="EntityDataSourceBanco" DataValueField="NitBanco" DataTextField="Nombre"></asp:DropDownList>
                                             </div>
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-3">
                                             <label>Tipo de cuenta</label>
                                             <select class="form-control">
                                                 <option>De ahorro</option>
@@ -556,18 +558,22 @@
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
+        <asp:EntityDataSource ID="EntityDataSourceBanco" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="bancos"></asp:EntityDataSource>
         <asp:EntityDataSource ID="EntityDataSourceEPS" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="eps"></asp:EntityDataSource>
         <asp:EntityDataSource ID="EntityDataSourcePension" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="pension"></asp:EntityDataSource>
         <asp:EntityDataSource ID="EntityDataSourceARL" runat="server" ConnectionString="name=nominashcEntities" DefaultContainerName="nominashcEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="arl"></asp:EntityDataSource>
             
-    </form>         
-</body>
-</html>
-    <script src="../Scripts/jquery-1.9.0.min.js"></script>
+    </form>   
+    
+     <script src="../Scripts/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="../datepicker/js/moment.js"></script>
     <script src="../datepicker/js/bootstrap-datetimepicker.js"></script>
     <script src="../Scripts/plugins/metisMenu/metisMenu.min.js"></script>
     <script src="../Scripts/sb-admin-2.js"></script>
     <script src="../Scripts/typeahead.js"></script>
-    <script src="../Scripts/Contratacion.js"></script>
+    <script src="../LibScripts/jquery_ext.js"></script>
+    <script src="../Scripts/Contratacion.js"></script>      
+</body>
+</html>
+   
