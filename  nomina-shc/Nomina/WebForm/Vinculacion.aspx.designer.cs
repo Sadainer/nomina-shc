@@ -58,6 +58,24 @@ namespace Nomina.WebForm {
         protected global::System.Web.UI.WebControls.Label LblDuraccion;
         
         /// <summary>
+        /// Control DropDownDpto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownDpto;
+        
+        /// <summary>
+        /// Control DropDownBanco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownBanco;
+        
+        /// <summary>
         /// Control DropDownEPS.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace Nomina.WebForm {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownARL;
+        
+        /// <summary>
+        /// Control EntityDataSourceBanco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceBanco;
         
         /// <summary>
         /// Control EntityDataSourceEPS.

@@ -8,11 +8,11 @@ using DAL;
 using DAL.Modelo;
 using DTO;
 
-namespace BLL
+namespace NominaBLL
 {
-    public class NominaBLL
+    public class EmpleadoBLL
     {
-        NominaDAL Dal = new NominaDAL();
+        EmpleadoDAL Dal = new EmpleadoDAL();
         public string NuevoEmpleado(EmpleadosDTO Emp)
         {
             string res="Error al guardar";

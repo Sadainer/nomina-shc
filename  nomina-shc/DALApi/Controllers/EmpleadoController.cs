@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Cors;
-using BLL;
+using NominaBLL;
 using DTO;
 
 namespace DALApi.Controllers
@@ -15,7 +15,7 @@ namespace DALApi.Controllers
     [RoutePrefix("api/empleado")]
     public class EmpleadoController : ApiController
     {
-        NominaBLL NomBLL = new NominaBLL();
+        EmpleadoBLL NomBLL = new EmpleadoBLL();
         // GET api/empleado
         [Route("")]
         public List<EmpleadosDTO> Get()

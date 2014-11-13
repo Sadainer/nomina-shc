@@ -13,19 +13,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/31/2014 15:13:03</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>11/05/2014 09:55:27</publishTime>
+      <publishTime>11/12/2014 17:24:36</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>11/05/2014 09:55:26</publishTime>
+      <publishTime>11/12/2014 17:24:36</publishTime>
     </File>
     <File Include="bin/DALApi.dll">
-      <publishTime>11/05/2014 09:55:27</publishTime>
+      <publishTime>11/12/2014 17:24:37</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>11/05/2014 09:55:26</publishTime>
+      <publishTime>11/12/2014 17:24:35</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>08/10/2014 11:40:00</publishTime>
+      <publishTime>10/08/2014 11:40:00</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
       <publishTime>10/31/2014 10:00:15</publishTime>
@@ -61,7 +61,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/31/2014 10:00:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/11/2014 08:29:22</publishTime>
+      <publishTime>11/12/2014 17:24:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

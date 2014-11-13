@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DptoDAL.cs" />
     <Compile Include="Modelo\arl.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
@@ -103,7 +104,7 @@
     <Compile Include="Modelo\vinculaciones.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
-    <Compile Include="NominaDAL.cs" />
+    <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -79,6 +79,7 @@
     <Content Include="datepicker\js\moment.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="LibScripts\jquery_ext.js" />
     <Content Include="Scripts\Contratacion.js" />
     <Content Include="Scripts\date.js" />
     <Content Include="WebForm\HtmlPage2.html" />
