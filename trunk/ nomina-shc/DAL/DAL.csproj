@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargosDAL.cs" />
+    <Compile Include="VinculacionDAL.cs" />
     <Compile Include="DptoDAL.cs" />
     <Compile Include="Modelo\arl.cs">
       <DependentUpon>SHC.tt</DependentUpon>
@@ -57,9 +59,6 @@
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ccf.cs">
-      <DependentUpon>SHC.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\cuentas.cs">
       <DependentUpon>SHC.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\departamentos.cs">

@@ -31,14 +31,16 @@ namespace DAL.Modelo
         public string NoCuenta { get; set; }
         public string NitPension { get; set; }
         public string idCargos { get; set; }
+        public string NitBanco { get; set; }
+        public string TipoCuenta { get; set; }
     
         public virtual arl arl { get; set; }
         public virtual cargos cargos { get; set; }
         public virtual ccf ccf { get; set; }
-        public virtual cuentas cuentas { get; set; }
         public virtual empleados empleados { get; set; }
         public virtual eps eps { get; set; }
         public virtual ICollection<novedades> novedades { get; set; }
         public virtual pension pension { get; set; }
+        public virtual bancos bancos { get; set; }
     }
 }

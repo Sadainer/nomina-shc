@@ -13,16 +13,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/31/2014 15:13:03</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>11/12/2014 17:24:36</publishTime>
+      <publishTime>11/18/2014 18:08:15</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>11/12/2014 17:24:36</publishTime>
+      <publishTime>11/18/2014 18:08:14</publishTime>
     </File>
     <File Include="bin/DALApi.dll">
-      <publishTime>11/12/2014 17:24:37</publishTime>
+      <publishTime>11/18/2014 18:08:15</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>11/12/2014 17:24:35</publishTime>
+      <publishTime>11/18/2014 17:59:11</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/08/2014 11:40:00</publishTime>

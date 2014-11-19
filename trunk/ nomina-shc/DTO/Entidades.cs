@@ -8,7 +8,7 @@ namespace DTO
 {
         public class EmpleadosDTO
         {
-            public int idEmpleado { get; set; }
+            public string idEmpleado { get; set; }
             public string Nombre { get; set; }
             public string ApellidoP { get; set; }
             public string ApellidoS { get; set; }
@@ -31,5 +31,29 @@ namespace DTO
             public string idDepartamento { get; set; }
             public string Nombre { get; set; }
             public string idEmpresa { get; set; }
+        }
+        public  class CargosDTO
+        {
+            public string idCargos { get; set; }
+            public string Nombre { get; set; }
+            public string idDepartamento { get; set; }
+        }
+        public class VinculacionDTO
+        {
+            public int idVinculacion { get; set; }
+            public string idEmpleado { get; set; }
+            public System.DateTime FechaInicio { get; set; }
+            public System.DateTime FechaFinal { get; set; }
+            public string TipoContrato { get; set; }
+            public string PeriodoPago { get; set; }
+            public string NitARL { get; set; }
+            public string NitCCF { get; set; }
+            public string NitEPS { get; set; }
+            public string NoCuenta { get; set; }
+            public string NitPension { get; set; }
+            public string idCargos { get; set; }
+            public string NitBanco { get; set; }
+            public string TipoCuenta { get; set; }
+
         }
 }

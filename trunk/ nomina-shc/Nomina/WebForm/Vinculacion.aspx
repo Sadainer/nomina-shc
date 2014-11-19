@@ -406,7 +406,7 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                             <label>Tipo de contrato</label>
-                                                <select class="form-control">
+                                                <select class="form-control" id="ComTipContrato">
                                                 <option>Termino Fijo</option>
                                                 <option>Termino Indefinido</option>
                                                 <option>Obra o labor determinada</option>
@@ -415,7 +415,7 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <label>Tipo de jornada</label>
-                                                <select class="form-control">
+                                                <select class="form-control" id="ComTipJornada">
                                                 <option>Diurna</option>
                                                 <option>Nocturna</option>
                                             </select> 
@@ -426,8 +426,8 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <label>Fecha de vinculación</label>
-                                                        <div class='input-group date fecha' id='txtFechaNac'>
-                                                            <input type='text' class="form-control" />
+                                                        <div class='input-group date fecha'>
+                                                            <input type='text' class="form-control" id="txtFechaVinculacion"/>
                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
                                                         </div>
@@ -438,8 +438,8 @@
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <label>Fecha de Terminación</label>
-                                                            <div class='input-group date fecha' id='Div1'>
-                                                                <input type='text' class="form-control" id="FechaTerminacion" />
+                                                            <div class='input-group date fecha'>
+                                                                <input type='text' class="form-control" id="txtFechaTerminacion" />
                                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                                 </span>
                                                             </div>
@@ -459,19 +459,12 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                             <label>Departamento</label>
-                                                <select class="form-control" id="Select3">
-                                                    <asp:DropDownList ID="DropDownDpto" runat="server" CssClass="form-control"></asp:DropDownList>
-                                                    <select id="DropDownDpto1" class ="form-control">
-                                                        <option></option>
-
-                                                    </select>
-                                                    
+                                                <select class="form-control" id="DropDownDpto">
                                                 </select> 
                                             </div>
                                             <div class="col-lg-6">
                                                 <label>Cargo</label>
-                                                <select class="form-control" id="Select4">
-                                                 <option>1</option>
+                                                <select class="form-control" id="DropDownCargo">
                                                 </select> 
                                             </div>
                                         </div>
@@ -480,11 +473,11 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                             <label>Salario</label>
-                                                 <input type='text' class="form-control" />
+                                                 <input type='text' class="form-control" id="txtSalario"/>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label>Periodo de pago</label>
-                                                <select class="form-control">
+                                                <select class="form-control" id="ComPedPago">
                                                 <option>Quincenal</option>
                                                 <option>Mensual</option>
                                                  </select> 
@@ -501,14 +494,14 @@
                                             </div>
                                             <div class="col-lg-3">
                                             <label>Tipo de cuenta</label>
-                                            <select class="form-control">
+                                            <select class="form-control" id="txtTipCuenta">
                                                 <option>De ahorro</option>
                                                 <option>Corriente</option>
                                             </select> 
                                             </div>
                                             <div class="col-lg-4">
                                                 <label>Número de cuenta</label>
-                                                <input type='text' class="form-control" />
+                                                <input type='text' class="form-control" id="txtNumCuenta"/>
                                             </div>
                                         </div>
                                     </div>
@@ -528,7 +521,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Caja de Compensación</label>
-                                            <select class="form-control">
+                                            <select class="form-control" id="ComCajaCompensacion">
                                             <option>Masculino</option>
                                             <option>Femenino</option>
                                         </select> 

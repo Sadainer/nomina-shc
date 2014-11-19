@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="nominashcModel.bancos" Width="1.5" PointX="1.5" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.cargos" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.ccf" Width="1.5" PointX="3.75" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="nominashcModel.cuentas" Width="1.5" PointX="3.75" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.departamentos" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.empleados" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.empresas" Width="1.5" PointX="1.5" PointY="13.875" IsExpanded="true" />
@@ -20,11 +19,9 @@
         <EntityTypeShape EntityType="nominashcModel.tiponovedad" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominashcModel.vinculaciones" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
         <AssociationConnector Association="nominashcModel.fk_Vinculaciones_ARL1" ManuallyRouted="false" />
-        <AssociationConnector Association="nominashcModel.fk_Cuentas_Bancos1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Cargos_Departamentos1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Cargos1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Vinculaciones_CCF1" ManuallyRouted="false" />
-        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Cuentas1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Departamentos_Empresas1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Fotos_Empleados1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Empleados1" ManuallyRouted="false" />
@@ -32,6 +29,7 @@
         <AssociationConnector Association="nominashcModel.fk_Novedades_TipoNovedad1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Novedades_Vinculaciones1" ManuallyRouted="false" />
         <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Pension1" ManuallyRouted="false" />
+        <AssociationConnector Association="nominashcModel.fk_Vinculaciones_Bancos1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

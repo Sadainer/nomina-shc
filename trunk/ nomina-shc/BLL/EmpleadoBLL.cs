@@ -33,7 +33,7 @@ namespace NominaBLL
             return Em;
 
         }
-        public EmpleadosDTO GetEmple(int id)
+        public EmpleadosDTO GetEmple(string id)
         {
             EmpleadosDTO Emp = new EmpleadosDTO();
             Mapper.CreateMap<empleados, EmpleadosDTO>();
