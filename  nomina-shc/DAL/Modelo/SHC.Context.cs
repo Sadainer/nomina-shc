@@ -29,7 +29,6 @@ namespace DAL.Modelo
         public DbSet<bancos> bancos { get; set; }
         public DbSet<cargos> cargos { get; set; }
         public DbSet<ccf> ccf { get; set; }
-        public DbSet<cuentas> cuentas { get; set; }
         public DbSet<departamentos> departamentos { get; set; }
         public DbSet<empleados> empleados { get; set; }
         public DbSet<empresas> empresas { get; set; }

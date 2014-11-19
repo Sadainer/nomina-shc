@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargosBLL.cs" />
+    <Compile Include="VinculacionBLL.cs" />
     <Compile Include="DptoBLL.cs" />
     <Compile Include="EmpleadoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

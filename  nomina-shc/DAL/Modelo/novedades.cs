@@ -19,7 +19,7 @@ namespace DAL.Modelo
         public int idTipoNovedad { get; set; }
         public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFinal { get; set; }
-        public string PeriodoNovedad { get; set; }
+        public Nullable<long> Valor { get; set; }
     
         public virtual tiponovedad tiponovedad { get; set; }
         public virtual vinculaciones vinculaciones { get; set; }

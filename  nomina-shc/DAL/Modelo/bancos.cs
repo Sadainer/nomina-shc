@@ -16,13 +16,13 @@ namespace DAL.Modelo
     {
         public bancos()
         {
-            this.cuentas = new HashSet<cuentas>();
+            this.vinculaciones = new HashSet<vinculaciones>();
         }
     
         public string NitBanco { get; set; }
         public string Nombre { get; set; }
         public string CodPila { get; set; }
     
-        public virtual ICollection<cuentas> cuentas { get; set; }
+        public virtual ICollection<vinculaciones> vinculaciones { get; set; }
     }
 }

@@ -8,22 +8,22 @@ using DAL.Modelo;
 
 namespace DAL
 {
-    public class EmpleadoDAL 
+    public class VinculacionDAL 
     {
         nominashcEntities db = new nominashcEntities();
 
-        public List<empleados> GetEmpleados()
-        {
-            return db.empleados.ToList();
-        }
-        public empleados GetEmple(string id)
-        {
-            return db.empleados.Find(id);
-        }
-        public Boolean NuevoEmpleado(empleados Emp)
+        //public List<empleados> GetEmpleados()
+        //{
+        //    return db.empleados.ToList();
+        //}
+        //public empleados GetEmple(int id)
+        //{
+        //    return db.empleados.Find(id);
+        //}
+        public Boolean NuevaVinculacion(vinculaciones value)
         {
             Boolean Resp = true;
-            db.empleados.Add(Emp);
+            db.vinculaciones.Add(value);
             try
             {
                 db.SaveChanges();

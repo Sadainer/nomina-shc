@@ -1,15 +1,16 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function () { 
+    var ruta = "http://localhost/NominaAPI/api/";
     var states = [];
     var Invitado;
     $.ajax({
         type: "GET",
-        url: "http://localhost/NominaAPI/api/dpto/12345",
+        url: ruta + "dpto/12345",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        async: false,
+        async: true,
         success: function (result) {
-            alert(JSON.stringify(result));
-            $("#DropDownDpto1").byaCombo({ DataSource: result, Value: "idDepartamento", Display: "Nombre", placeHolder: "Selecciones Dpto" });
+            //alert(JSON.stringify(result));
+            $("#DropDownDpto").byaCombo({ DataSource: result, Value: "idDepartamento", Display: "Nombre", placeHolder: "Seleccione Dpto" });
         },
         error: function (result) {
             alert("Error" + (JSON.stringify(result)));
@@ -18,10 +19,10 @@
 
     $.ajax({
             type: "GET",
-            url: "http://localhost/NominaAPI/api/empleado",
+            url: ruta + "empleado",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            async: false,
+            async: true,
             success: function (result) {
 
                 $.each(result, function (key, value) {
@@ -33,6 +34,22 @@
             error: function (result) {
                 alert("Error" + (JSON.stringify(result)));
             }
+    });
+    $('#DropDownDpto').change(function () {
+        $.ajax({
+            type: "GET",
+            url: ruta + "cargos/" + $("#DropDownDpto").val(),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: true,
+            success: function (result) {
+                $("#DropDownCargo").byaCombo({ DataSource: result, Value: "idCargos", Display: "Nombre", placeHolder: "Seleccione Cargo" });
+           
+            },
+            error: function (result) {
+                $("#DropDownCargo").empty();
+            }
+        });
     });
     var substringMatcher = function (strs) {
         return function findMatches(q, cb) {
@@ -65,10 +82,9 @@
     });
     $("#btnAgregar").click(function () {
         Invitado = $("#txtCedula").val();
-
         $.ajax({
             type: "GET",
-            url: "http://localhost/NominaAPI/api/empleado/" + Invitado,
+            url: ruta + "empleado/" + Invitado,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             async: false,
@@ -93,27 +109,24 @@
         });
     });
     $("#BtnGuardar").click(function () {
-        Emp = {};
-        Emp.idEmpleado = $("#txtCedula").val();
-        Emp.Nombre = $("#txtNombre").val();
-        Emp.ApellidoP = $("#txtApellidoP").val();
-        Emp.ApellidoS = $("#txtApellidoS").val();
-        Emp.Sexo = $("#txtSexo").val();
-        Emp.EstadoCivil = $("#txtEstadoCivil").val();
-        Emp.FechaNacimiento = Date.parse($("#txtFechaNac").val());
-        Emp.LugarNacimiento = $("#txtLugNac").val();
-        Emp.Direccion = $("#txtDireccion").val();
-        Emp.Telefono = $("#txtTelefono").val();
-        Emp.Celular = $("#txtCelular").val();
-        Emp.GrupoSanguineo = $("#txtGrupoSanguineo").val();
-        Emp.Profesion = $("#txtProfesion").val();
-        Emp.Cargos_idCargos = $("#txtCargo").val();
+        Vinc = {};
+        Vinc.idEmpleado =$("#txtCedula").val();
+        Vinc.FechaInicio =  moment($("#txtFechaVinculacion").val(), "DD-MM-YYYY");
+        Vinc.FechaFinal =  moment($("#txtFechaTerminacion").val(), "DD-MM-YYYY");
+        Vinc.TipoContrato = $("#ComTipContrato").val();
+        Vinc.PeriodoPago = $("#ComPedPago").val();
+        Vinc.NitARL = $("#DropDownARL").val();
+        Vinc.NitCCF = $("#ComCajaCompensacion").val();
+        Vinc.NitEPS = $("#DropDownEPS").val();
+        Vinc.NoCuenta = $("#txtNumCuenta").val();
+        Vinc.NitPension = $("#DropDownPension").val();
+        Vinc.idCargos = $("#DropDownCargo").val();
 
-        alert(JSON.stringify(Emp));
+        alert(JSON.stringify(Vinc));
         $.ajax({
             type: "POST",
-            url: "http://localhost/NominaAPI/api/empleado",
-            data: JSON.stringify(Emp),
+            url: ruta + "vinculacion",
+            data: JSON.stringify(Vinc),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             async: false,
